@@ -1,0 +1,16 @@
+about:
+    home: http://iraf.noao.edu
+    license: MIT
+    summary: NOAO Image Reduction and Analysis Facility
+build:
+    binary_relocation: False [osx]
+    detect_binary_files_with_prefix: False [osx]
+    number: '0'
+package:
+    name: iraf
+    version: 2.16.1
+source:
+    fn: iraf.tar.gz
+    url:
+    - http://ssb.stsci.edu/stripped/linux/iraf.tar.gz [linux]
+    - http://ssb.stsci.edu/stripped/osx/iraf.tar.gz   [osx]
