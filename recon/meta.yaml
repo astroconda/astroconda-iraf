@@ -1,0 +1,23 @@
+about:
+    home: http://github.com/jhunkeler/recon
+    license: BSD
+    summary: Release control for git
+build:
+    number: '0'
+package:
+    name: recon
+    version: '1.0.2'
+requirements:
+    build:
+    - setuptools
+    - python x.x
+    run:
+    - python x.x
+source:
+    git_url: https://github.com/jhunkeler/recon.git
+    git_tag: '1.0.2'
+test:
+    imports:
+    - recon
+    - recon.release
+    - recon.git
