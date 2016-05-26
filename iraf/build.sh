@@ -9,9 +9,9 @@ unset LDFLAGS
 # Complement build script
 # ("UR_IRAFUSER" MUST BE SET OR BUILD WILL FAIL)
 export UR_IRAFUSER=1
+export UR_DIR_PKG=$PREFIX/variants/common/
 export sm_logs=`pwd`/logs
 export TERM=xterm
-export FAKE_IRAF="../iraf"
 
 # Minimal architecture detection
 # (We don't care about 64-bit)
@@ -31,8 +31,12 @@ case "$target" in
 esac
 
 
+# For UR_DIR_PKG to use (though I don't think we really need it anymore)
+mkdir -p $UR_DIR_PKG
+echo keep > $UR_DIR_PKG/extern.pkg
+
 # Copy working directory into PREFIX
-export iraf=$PREFIX/iraf
+export iraf=$PREFIX/iraf/
 #mkdir -p $iraf
 rsync -aH `pwd`/ $iraf
 cd $iraf
@@ -40,9 +44,6 @@ cd $iraf
 # Execute build
 printenv
 ./build 32
-
-# Creating it made no sense... now we remove it
-#rm -rfv $FAKE_IRAF
 
 # General tasks below
 
@@ -58,8 +59,6 @@ rm -rfv "$iraf/vo/bin.generic"
 mkdir -p "$iraf/vo/bin.generic"
 rm -fv "$iraf/vo/bin"
 ( cd $iraf/vo && ln -s bin.$IRAFARCH bin )
-
-
 
 # Not used... ?
 
