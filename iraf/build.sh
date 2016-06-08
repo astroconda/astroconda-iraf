@@ -2,6 +2,7 @@
 mkdir -p `pwd`/logs
 
 # Drop extraneous conda-set environment variables
+unset ARCH
 unset CFLAGS
 unset CXXFLAGS
 unset LDFLAGS

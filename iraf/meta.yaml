@@ -1,13 +1,15 @@
 about:
     home: http://iraf.noao.edu
-    license: MIT
+    license: MIT (and third-party licenses)
     summary: NOAO Image Reduction and Analysis Facility
 build:
-    #binary_relocation: False [osx]
+    binary_relocation: False
     #detect_binary_files_with_prefix: False [osx]
     number: '0'
 package:
     name: iraf
-    version: 2.16.1
+    version: 2.16_UR
 source:
-    git_url: /eng/ssb/jhunk/git-repos/iraf.git
+    # svn_url: https://aeon.stsci.edu/ssb/svn/u-rel/iraf-2.16/branches/jhunk-patches
+    # svn_rev: 4156
+    svn_url: https://aeon.stsci.edu/ssb/svn/u-rel/iraf-2.16/branches/conda_patches
