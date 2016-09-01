@@ -1,7 +1,7 @@
 set -x
 
 # Drop extraneous conda-set environment variables
-unset ARCH CFLAGS CXXFLAGS LDFLAGS
+unset ARCH CFLAGS CXXFLAGS LDFLAGS MACOSX_DEPLOYMENT_TARGET
 
 # Complement build script
 export TERM=xterm
