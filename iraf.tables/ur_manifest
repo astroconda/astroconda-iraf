@@ -1,0 +1,11 @@
+bin/libdisplay.a
+bin/libgflib.a
+bin/libgilib.a
+bin/libstxtools.a
+bin/libtbtables.a
+bin/libuttables.a
+bin/trename.e
+bin/x_fitsio.e
+bin/x_tbplot.e
+bin/x_threed.e
+bin/x_ttools.e

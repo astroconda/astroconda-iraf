@@ -1,0 +1,28 @@
+about:
+    home: http://www.stsci.edu/institute/software_hardware/stsdas
+    license: US government notice (and third-party licenses)
+    summary: STScI TABLES package for IRAF
+build:
+    binary_relocation: False
+    number: '0'
+    # These must be copied from astroconda-utils, since conda unhelpfully
+    # disallows the post-install step from depending on other packages:
+    always_include_files:
+    - bin/ac_config_iraf_pkg
+    - bin/ac_update_extern_pkg
+package:
+    name: iraf.tables
+    version: 3.17
+source:
+    fn: stsci_iraf-3.17-local.tar.gz  # quirky requirement in addition to url
+    # Need to figure out a site-agnostic way to specify this (conda-build #567):
+    url: file:///rtfperm/ur_packages/stsci_iraf-3.17-local.tar.gz
+    patches:
+    - ac.iraf.stsci.patch
+requirements:
+    build:
+    - iraf ==2.16_UR
+    - astroconda-utils
+    run:
+    - iraf ==2.16_UR
+
