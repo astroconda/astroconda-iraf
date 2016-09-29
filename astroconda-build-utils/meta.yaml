@@ -1,16 +1,16 @@
 about:
-    home: https://github.com/jehturner/astroconda-utils
+    home: https://github.com/jehturner/astroconda-build-utils
     license: BSD
-    summary: Build and run time utilities for AstroConda
+    summary: Utilities to help build and install AstroConda packages
 build:
     binary_relocation: True
     #detect_binary_files_with_prefix: False [osx]
     number: '0'
 package:
-    name: astroconda-utils
+    name: astroconda-build-utils
     version: "0.1"
 source:
-    git_url: https://github.com/jehturner/astroconda-utils.git
+    git_url: https://github.com/jehturner/astroconda-build-utils.git
 requirements:
     run:
     - iraf !=2.16.1,>=2.16.UR  # conda oddly considers 2.16.1 > 2.16.UR/UR_2.16

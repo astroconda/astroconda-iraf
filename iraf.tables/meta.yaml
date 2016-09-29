@@ -5,7 +5,7 @@ about:
 build:
     binary_relocation: False
     number: '0'
-    # These must be copied from astroconda-utils, since conda unhelpfully
+    # These must be copied from astroconda-build-utils, since conda unhelpfully
     # disallows the post-install step from depending on other packages:
     always_include_files:
     - bin/ac_config_iraf_pkg
@@ -20,8 +20,8 @@ source:
     - ac.iraf.stsci.patch
 requirements:
     build:
-    - iraf !=2.16.1,>=2.16.UR  # conda oddly considers 2.16.1 > 2.16.UR/UR_2.16
-    - astroconda-utils
+    - iraf !=2.16.1,>=2.16.UR
+    - astroconda-build-utils
     run:
     - iraf !=2.16.1,>=2.16.UR
 
