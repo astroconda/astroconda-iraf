@@ -13,6 +13,6 @@ source:
     git_url: https://github.com/jehturner/astroconda-utils.git
 requirements:
     run:
-    - iraf ==2.16_UR
+    - iraf !=2.16.1,>=2.16.UR  # conda oddly considers 2.16.1 > 2.16.UR/UR_2.16
     - pyraf
 

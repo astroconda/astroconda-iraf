@@ -8,7 +8,7 @@ build:
     number: '0'
 package:
     name: iraf
-    version: 2.16_UR
+    version: 2.16.UR
 source:
     # svn_url: https://aeon.stsci.edu/ssb/svn/u-rel/iraf-2.16/branches/jhunk-patches
     # svn_rev: 4156
