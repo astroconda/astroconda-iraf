@@ -15,7 +15,7 @@ package:
     version: 3.17
 source:
     fn: stsci_iraf-3.17-local.tar.gz  # quirky requirement in addition to url
-    url: https://astroconda-source:4440/stsci_iraf-3.17-local.tar.gz
+    url: http://astroconda-source:4440/stsci_iraf-3.17-local.tar.gz
     patches:
     - ac.iraf.stsci.patch
 requirements:
