@@ -1,0 +1,7 @@
+reset   stecf           = UR_VDIR
+task    stecf.pkg       = stecf$stecf.cl
+if (access("stecf$lib")) {
+    reset helpdb= ( envget("helpdb") + ",stecf$lib/helpdb.mip" )
+    reset aproposdb= ( envget("aproposdb") + ",stecf$lib/apropos.db" )
+}
+
