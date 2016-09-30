@@ -1,7 +1,7 @@
 about:
     home: http://www.stsci.edu/institute/software_hardware/stsdas
     license: US government notice (and third-party licenses)
-    summary: STScI TABLES package for IRAF
+    summary: STScI STSDAS package for IRAF
 build:
     binary_relocation: False
     number: '0'
@@ -11,7 +11,7 @@ build:
     - bin/ac_config_iraf_pkg
     - bin/ac_update_extern_pkg
 package:
-    name: iraf.tables
+    name: iraf.stsdas
     version: 3.17
 source:
     fn: stsci_iraf-3.17-local.tar.gz  # quirky requirement in addition to url
@@ -22,6 +22,8 @@ requirements:
     build:
     - astroconda-build-utils
     - iraf !=2.16.1,>=2.16.UR
+    - iraf.tables
     run:
     - iraf !=2.16.1,>=2.16.UR
+    - iraf.tables
 

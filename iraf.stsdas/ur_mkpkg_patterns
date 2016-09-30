@@ -1,0 +1,60 @@
+^gcc: -headerpad_max_install_names: linker input file unused because linking not done
+^ld: warning
+^libtool: file:
+^libtool: warning same member name
+^report:
+^total[ 	][0-9]
+^[drwxl-]{10}
+^/.*/iraf_extern/tables
+^/.*/iraf_extern/stsdas
+^/.*/iraf_extern/stecf
+^_=
+^[A-Za-z0-9_]*=
+^Warning: 
+^      apropos
+^      dataio
+^      dbms
+^      fitsio
+^(>.*)?ecl>[ \t]*$
+^      [+]-*[+][ 	]*$
+^      [|].*[|][ 	]*$
+^      [+]-*[+][ 	]*$
+^tables>
+^TABLES[ 	]*$
+^STSDAS[ 	]*$
+^Warning, mkpkg line
+^-- creating a new uparm directory
+^Terminal types:
+^Enter terminal type
+^You may
+^setting terminal type
+^mH.
+^[ 	]*NOAO/IRAF
+^[ 	]*This is the EXPORT version
+^[ 	]*Welcome to IRAF
+^[ 	]*detailed information about
+^[ 	]*command[ ]*or[ ]*load
+^[ 	]*package, or `logout'
+^[ 	]*what is new in
+^[ 	]*Visit http://iraf.net
+^[ 	]*The following commands
+^stsdas>
+^      analysis
+^      contrib
+^      catfits
+^      fits_exampl
+^      Fits_file
+^fitsio>
+^foc.fits
+^AFTER RFT_READ_FITS
+^STECF
+^Fits_file[ 	]
+^[ 	]*[A-Za-z0-9_.-]*[.]fits[ 	]
+^[ 	]*[A-Za-z0-9_.-]*[.]hhh[ 	]
+^[ 	]*hhh[ 	]
+^[ 	]*[.]{2}/scidata/
+^[ 	]*renamed to
+^0a1$
+^\+ export
+^rm
+^unable to remove
