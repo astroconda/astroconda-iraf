@@ -1,0 +1,6 @@
+# ftp://iraf.noao.edu/iraf/v215/REPO
+reset fitsutil = UR_VDIR
+task  fitsutil.pkg = fitsutil$fitsutil.cl
+reset helpdb= ( envget("helpdb") + ",fitsutil$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",fitsutil$lib/apropos.db" )
+
