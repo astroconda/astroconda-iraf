@@ -1,0 +1,10 @@
+bin/libdbc.a
+bin/libgemini.a
+bin/libgslalib.a
+bin/libirafdb.a
+bin/libmefio.a
+bin/libpdainterp.a
+bin/x_gemexpr.e
+bin/x_gemtools.e
+bin/x_gmos.e
+bin/x_gnirs.e

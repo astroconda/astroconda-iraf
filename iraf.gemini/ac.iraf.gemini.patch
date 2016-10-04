@@ -1,0 +1,39 @@
+diff -ur ../original/gemini.cl ./gemini.cl
+--- ../original/gemini.cl	2015-11-30 20:26:51.000000000 -0300
++++ ./gemini.cl	2016-10-03 21:17:44.000000000 -0300
+@@ -23,7 +23,9 @@
+ #          Dec   7, 2015 KL	Release v1.13.1
+ #
+ # The latest version of the Gemini IRAF package is only compatible with
+-# versions of IRAF between v2.14.1 and v2.16 in Ureka
++# versions of IRAF between v2.14.1-v2.15.1a and v2.16 in Ureka or Astroconda
++# -- but that requirement is enforced by installing as a conda package, so the
++# version-check logic has been removed here (avoiding annoying pauses):
+ if (defpar ("release")) {
+     if (release >= "2.16") {
+         # There appear to be several issues related to the new image template
+@@ -31,24 +33,7 @@
+         if (defvar("use_new_imt")) {
+             set use_new_imt = "no"
+         }
+-        if (!access("iraf$../bin/ur-setup-real")) {
+-            printf ("WARNING: The Gemini IRAF package is not compatible \n")
+-            printf ("         with IRAF v2.16, unless installed using Ureka\n")
+-            printf ("Tested with IRAF 2.16 from Ureka\n")
+-            sleep 10
+-        }
+-    } else if ((release < "2.14.1") || (release > "2.15.1a")) {
+-        printf ("WARNING: The Gemini IRAF package is only compatible with\n")
+-        printf ("         versions of IRAF between v2.14.1 and v2.15.1a\n")
+-        printf ("         and v2.16 in Ureka\n")
+-        printf ("Tested with IRAF 2.16 from Ureka\n")
+-        sleep 10
+     }
+-} else {
+-        printf ("WARNING: The Gemini IRAF package is only compatible with\n")
+-        printf ("         versions of IRAF v2.14.1 and v2.16 in Ureka\n")
+-        printf ("Tested with IRAF 2.16 from Ureka\n")
+-        sleep 10
+ }
+ ;
+ 

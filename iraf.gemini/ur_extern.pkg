@@ -1,0 +1,6 @@
+# http://www.gemini.edu/sciops/data-and-results/processing-software/releases/downloads
+reset gemini = UR_VDIR
+task  gemini.pkg = gemini$gemini.cl
+reset helpdb= ( envget("helpdb") + ",gemini$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",gemini$lib/apropos.db" )
+
