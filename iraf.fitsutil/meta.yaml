@@ -12,7 +12,7 @@ build:
     - bin/ac_update_extern_pkg
 package:
     name: iraf.fitsutil
-    version: 2011_02_22
+    version: "2011_02_22"
 source:
     fn: fitsutil-src-2011-02-22.tar.gz
     url: http://astroconda-source:4440/fitsutil-src-2011-02-22.tar.gz

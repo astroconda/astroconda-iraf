@@ -12,7 +12,7 @@ build:
     - bin/ac_update_extern_pkg
 package:
     name: iraf.tables
-    version: 3.17
+    version: "3.17"
 source:
     fn: stsci_iraf-3.17-local.tar.gz  # quirky requirement in addition to url
     url: http://astroconda-source:4440/stsci_iraf-3.17-local.tar.gz
