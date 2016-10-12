@@ -1,21 +1,17 @@
 # Drop extraneous conda-set environment variables
-unset CFLAGS
-unset CXXFLAGS
-unset LDFLAGS
+unset ARCH CFLAGS CXXFLAGS LDFLAGS MACOSX_DEPLOYMENT_TARGET
 
 # Complement build script
-# ("UR_IRAFUSER" MUST BE SET OR BUILD WILL FAIL)
-export UR_IRAFUSER=1
 export TERM=xterm
 
-
-# Copy working directory into PREFIX
+# Tell the build script where IRAF is (& it will then set up its environment)
 export iraf=$PREFIX/iraf/
 
 # Execute build
-printenv
-./build 32
+printenv   > build_log 2>&1
+./build 32 >> build_log 2>&1
 
+# Copy files into PREFIX
 mkdir -p $PREFIX/{bin,include,lib,share}
 ./install.bin $PREFIX
 ./install.lib $PREFIX
