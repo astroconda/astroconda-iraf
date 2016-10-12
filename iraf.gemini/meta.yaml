@@ -6,7 +6,7 @@ about:
 build:
     binary_relocation: False
     number: '0'
-    # These must be copied from astroconda-build-utils, since conda unhelpfully
+    # These must be copied from astroconda-iraf-helpers, since conda unhelpfully
     # disallows the post-install step from depending on other packages:
     always_include_files:
     - bin/ac_config_iraf_pkg
@@ -21,7 +21,7 @@ source:
     - ac.iraf.gemini.patch
 requirements:
     build:
-    - astroconda-build-utils
+    - astroconda-iraf-helpers
     - iraf !=2.16.1,>=2.16.UR
     - iraf.tables
     - iraf.stsdas

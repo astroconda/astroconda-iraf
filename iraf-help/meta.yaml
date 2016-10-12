@@ -10,7 +10,7 @@ package:
     version: "2.16.UR"
 requirements:
     build:
-    - astroconda-build-utils    # depends on PyRAF, hence why separate
+    - astroconda-iraf-helpers   # depends on PyRAF, hence why separate
     - iraf !=2.16.1,>=2.16.UR
     run:
     - iraf !=2.16.1,>=2.16.UR
