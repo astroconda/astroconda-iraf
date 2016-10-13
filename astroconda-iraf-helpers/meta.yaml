@@ -1,5 +1,5 @@
 about:
-    home: https://github.com/jehturner/astroconda-iraf-helpers
+    home: https://github.com/astroconda/astroconda-iraf-helpers
     license: BSD
     summary: Utilities to help build and install AstroConda packages
 build:
