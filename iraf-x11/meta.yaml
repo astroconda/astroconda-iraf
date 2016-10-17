@@ -1,0 +1,19 @@
+about:
+    home: http://iraf.noao.edu
+    license: MIT
+    summary: X11 support for IRAF
+build:
+    #binary_relocation: False [osx]
+    #detect_binary_files_with_prefix: False [osx]
+    number: '0'
+package:
+    name: iraf-x11
+    version: "2.0"
+requirements:
+    build:
+    - iraf !=2.16.1,>=2.16.UR
+    run:
+    - iraf !=2.16.1,>=2.16.UR
+source:
+    svn_url: https://aeon.stsci.edu/ssb/svn/u-rel/x11iraf/trunk/
+

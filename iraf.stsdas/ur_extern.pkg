@@ -1,0 +1,8 @@
+reset   stsdas          = UR_VDIR
+task    stsdas.pkg      = stsdas$stsdas.cl
+task    apropos         = stsdas$apropos.cl
+if (access("stsdas$lib")) {
+    reset helpdb= ( envget("helpdb") + ",stsdas$lib/helpdb.mip" )
+    reset aproposdb= ( envget("aproposdb") + ",stsdas$lib/apropos.db" )
+}
+

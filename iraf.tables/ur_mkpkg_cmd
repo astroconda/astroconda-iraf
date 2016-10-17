@@ -1,0 +1,36 @@
+# In Ureka, this script used to call make_all from the stsci_iraf tarball but
+# in AstroConda, the applicable parts of make_all are instead included here, to
+# accommodate stsci_iraf being split into separate conda packages:
+
+status=0
+
+ls -la
+pwd
+
+# (JT: I think stsci_iraf just does this to log the path to the version that
+# gets picked up, for troubleshooting purposes:)
+(
+(
+env | sort
+
+cl << ARF
+tables
+cd tables$
+! pwd
+logout
+ARF
+) 2>&1
+) | sed 's/^/report: /' || status=1
+
+# Execute the build. We probably don't need a subshell now that we're working
+# directly in the tables subdirectory:
+echo report: TABLES
+mkpkg $IRAFARCH         || status=1
+mkpkg -p tables update  || status=1
+chmod g+r */*.e         || status=1
+
+# Proprietary code now gets removed by build_iraf_package. For stsci_iraf the
+# conda recipe copies the (separately-maintained) list to the right place first.
+
+exit $status
+

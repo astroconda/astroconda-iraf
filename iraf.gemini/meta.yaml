@@ -1,0 +1,34 @@
+about:
+    home: http://www.gemini.edu/sciops/data-and-results/processing-software
+    license: Fee-free redistribution only (& 3rd-party non-commercial licenses)
+    license_file: COPYRIGHT
+    summary: Gemini IRAF package
+build:
+    binary_relocation: False
+    number: '0'
+    # These must be copied from astroconda-iraf-helpers, since conda unhelpfully
+    # disallows the post-install step from depending on other packages:
+    always_include_files:
+    - bin/ac_config_iraf_pkg
+    - bin/ac_update_extern_pkg
+package:
+    name: iraf.gemini
+    version: "1.13.1"
+source:
+    fn: gemini_v1131_for_iraf_2.16.tar.gz
+    url: http://astroconda-source:4440/gemini_v1131_for_iraf_2.16.tar.gz
+    patches:
+    - ac.iraf.gemini.patch
+requirements:
+    build:
+    - astroconda-iraf-helpers
+    - iraf !=2.16.1,>=2.16.UR
+    - iraf.tables
+    - iraf.stsdas
+    - iraf.fitsutil
+    run:
+    - iraf !=2.16.1,>=2.16.UR
+    - iraf.tables
+    - iraf.stsdas
+    - iraf.fitsutil
+

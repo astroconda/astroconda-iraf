@@ -1,0 +1,17 @@
+diff -ur ../original/lib/cfitsio/mkpkg ./lib/cfitsio/mkpkg
+--- ../original/lib/cfitsio/mkpkg	2011-03-28 02:28:46.000000000 -0300
++++ ./lib/cfitsio/mkpkg	2016-08-10 17:47:41.000000000 -0300
+@@ -8,10 +8,10 @@
+ 	;
+ 
+ libcfitsio.a:
+-	# cheat and use Makefile....
+-	!(CFLAGS='$(HSI_CF) $(HSI_LF)' ; ./configure)
++	# cheat and use Makefile....	
++	!sh -c 'CFLAGS="$(HSI_CF) $(HSI_LF)" ./configure'
+ 	!make
+ 	!make fpack funpack
+-	!/bin/cp  libcfitsio.a ../
++	!/bin/cp  libcfitsio.a ../../bin/
+ 	!/bin/cp  fpack funpack ../../bin/
+ 	;

@@ -1,0 +1,27 @@
+about:
+    home: http://iraf.noao.edu/
+    license: IRAF MIT/X11 variant, CFITSIO government notice & GPL
+    summary: FITSUTIL package for IRAF
+build:
+    binary_relocation: False
+    number: '0'
+    # These must be copied from astroconda-iraf-helpers, since conda unhelpfully
+    # disallows the post-install step from depending on other packages:
+    always_include_files:
+    - bin/ac_config_iraf_pkg
+    - bin/ac_update_extern_pkg
+package:
+    name: iraf.fitsutil
+    version: "2011_02_22"
+source:
+    fn: fitsutil-src-2011-02-22.tar.gz
+    url: http://astroconda-source:4440/fitsutil-src-2011-02-22.tar.gz
+    patches:
+    - ac.iraf.fitsutil.patch
+requirements:
+    build:
+    - astroconda-iraf-helpers
+    - iraf !=2.16.1,>=2.16.UR
+    run:
+    - iraf !=2.16.1,>=2.16.UR
+

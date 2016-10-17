@@ -1,0 +1,18 @@
+about:
+    home: https://github.com/astroconda/astroconda-iraf-helpers
+    license: BSD
+    summary: Utilities to help build and install AstroConda packages
+build:
+    binary_relocation: True
+    #detect_binary_files_with_prefix: False [osx]
+    number: '0'
+package:
+    name: astroconda-iraf-helpers
+    version: "0.1"
+source:
+    git_url: https://github.com/astroconda/astroconda-iraf-helpers.git
+requirements:
+    run:
+    - iraf !=2.16.1,>=2.16.UR  # conda oddly considers 2.16.1 > 2.16.UR/UR_2.16
+    - pyraf
+

@@ -1,0 +1,44 @@
+# In Ureka, this script used to call make_all from the stsci_iraf tarball but
+# in AstroConda, the applicable parts of make_all are instead included here, to
+# accommodate stsci_iraf being split into separate conda packages:
+
+status=0
+
+#ls -la
+pwd
+
+# Execute the build:
+echo report: STSDAS
+mkpkg $IRAFARCH                   || status=1
+mkpkg -p tables -p stsdas update  || status=1
+chmod g+r */*.e                   || status=1
+
+# Do the additional steps from the tarball's make_all:
+echo report: STSDAS READ DATA FILES
+cd build_check  # created by build.sh in iraf.stsdas
+rm -rf iraf
+mkdir iraf
+cd iraf
+echo xterm | mkiraf > mkiraf_tmp 2>&1
+sed 's/^/report: /' < mkiraf_tmp
+touch .hushiraf
+cl > tmp << ARF
+stsdas
+fitsio
+cd stsdas
+cd data/fits
+cl < read_fits.cl
+logout
+ARF
+cd ..
+grep -v -f read_data_files.grep < iraf/tmp > result || status=1
+diff -b read_data_files.expect result               || status=1
+
+# Proprietary code now gets removed by build_iraf_package. For stsci_iraf the
+# conda recipe copies the (separately-maintained) list to the right place first.
+
+# Tidy up a bit (unless something failed detectably):
+[ $status = 0 ] && rm -fr iraf/
+
+exit $status
+

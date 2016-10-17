@@ -1,0 +1,16 @@
+about:
+    home: http://iraf.noao.edu
+    license: MIT (and third-party licenses)
+    summary: Core IRAF help & apropos databases (built separately)
+build:
+    binary_relocation: False
+    number: '0'
+package:
+    name: iraf-help
+    version: "2.16.UR"
+requirements:
+    build:
+    - astroconda-iraf-helpers   # depends on PyRAF, hence why separate
+    - iraf !=2.16.1,>=2.16.UR
+    run:
+    - iraf !=2.16.1,>=2.16.UR

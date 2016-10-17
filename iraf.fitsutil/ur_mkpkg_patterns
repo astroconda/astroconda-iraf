@@ -1,0 +1,24 @@
+^gcc: -headerpad_max_install_names: linker input file unused because linking not done
+^cfitsio: == Adding
+^cfitsio: == Using
+^[ 	]*Congratulations
+^[ 	]*You may want
+^!*make
+^drvrfile[.]c: In function .stream_open.:
+^drvrfile[.]c: In function .stream_create.:
+^[A-Za-z0-9_-]*[.]c:[0-9][0-9]*: warning:
+^ar[ 	]
+^fpackutil.o: In function .fp_pack_hdu':
+^[ 	]*yes[ 	]*$
+^[ 	]*done[ 	]*$
+^no[ 	]*$
+^eval_f.c: In function .parse_data.:
+^fpack.c: In function .fp_get_param.:
+^fpackutil.c: In function .fp_init.:
+^fpackutil.c: In function .fp_info_hdu.:
+^fpackutil.c: In function .fp_test.:
+^funpack.c: In function .fu_get_param.:
+^!sh -c
+^fpackutil.c:
+^configure:.* cfitsio:.*No acceptable Fortran compiler
+^configure:.* cfitsio:.*Adding wrapper support

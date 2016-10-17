@@ -1,0 +1,7 @@
+reset   tables          = UR_VDIR
+task    tables.pkg      = tables$tables.cl
+if (access("tables$lib")) {
+    reset helpdb= ( envget("helpdb") + ",tables$lib/helpdb.mip" )
+    reset aproposdb= ( envget("aproposdb") + ",tables$lib/apropos.db" )
+}
+
