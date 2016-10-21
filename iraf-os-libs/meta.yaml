@@ -1,0 +1,14 @@
+about:
+    home: https://www.centos.org
+    license: MIT / X11
+    summary: 32-bit X11 and curses libraries, needed to run ecl and X11IRAF
+build:
+    binary_relocation: True
+    rpaths:
+    - lib32/
+    number: '0'
+    skip: True  # [not linux]
+package:
+    name: iraf-os-libs
+    version: "1.0"
+
