@@ -14,10 +14,10 @@ package:
 requirements:
     build:
     - iraf-os-libs  # [linux]
-    - iraf !=2.16.1,>=2.16.UR
+    - iraf-core !=2.16.1,>=2.16.UR
     run:
     - iraf-os-libs  # [linux]
-    - iraf !=2.16.1,>=2.16.UR
+    - iraf-core !=2.16.1,>=2.16.UR
 source:
     svn_url: https://aeon.stsci.edu/ssb/svn/u-rel/x11iraf/trunk/
 

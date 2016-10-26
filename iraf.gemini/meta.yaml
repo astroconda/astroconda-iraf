@@ -22,12 +22,13 @@ source:
 requirements:
     build:
     - astroconda-iraf-helpers
-    - iraf !=2.16.1,>=2.16.UR
+    - iraf-core !=2.16.1,>=2.16.UR
     - iraf.tables
     - iraf.stsdas
     - iraf.fitsutil
     run:
-    - iraf !=2.16.1,>=2.16.UR
+    - iraf-core !=2.16.1,>=2.16.UR
+    - iraf-help !=2.16.1,>=2.16.UR
     - iraf.tables
     - iraf.stsdas
     - iraf.fitsutil

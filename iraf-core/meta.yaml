@@ -10,7 +10,7 @@ build:
     - lib32/
     number: '0'
 package:
-    name: iraf
+    name: iraf-core
     version: 2.16.UR
 requirements:
     build:
