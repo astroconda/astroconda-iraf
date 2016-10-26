@@ -13,6 +13,10 @@ requirements:
     # provide the corresponding IRAF version (whereas in general, meta packages
     # will provide the latest package versions at install time, to allow
     # updating component packages easily etc.).
+    build:
+    - iraf-core ==2.16.UR
+    - iraf-help ==2.16.UR
+    - iraf-x11  ==2.0
     run:
     - iraf-core ==2.16.UR    # (also pulls in iraf-os-libs)
     - iraf-help ==2.16.UR
