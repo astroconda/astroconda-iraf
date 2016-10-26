@@ -1,0 +1,32 @@
+about:
+    home: http://iraf.noao.edu
+    license: various (see individual packages)
+    summary: IRAF, X11IRAF & all the AstroConda external IRAF packages
+build:
+    number: '0'
+package:
+    name: iraf-all
+    version: "1.0"
+requirements:
+    # Including everything as a build dependency allows using the meta-package
+    # to rebuild everything, as well as for user installation (but see
+    # conda-build issue #849 regarding its failure to handle nested dependency
+    # builds correctly -- the packages are listed in their build order here,
+    # in the hope of circumventing that problem). 
+    build:
+    - iraf !=2.16.1,>=2.16.UR  # (meta package including X11IRAF)
+    - iraf.fitsutil
+    - iraf.tables
+    - iraf.stsdas
+    - iraf.gemini
+    - iraf.stecf
+    # For public use, these need to be floating version numbers, to allow
+    # updating constituent packages easily:
+    run:
+    - iraf !=2.16.1,>=2.16.UR  # (meta package including X11IRAF)
+    - iraf.fitsutil
+    - iraf.tables
+    - iraf.stsdas
+    - iraf.gemini
+    - iraf.stecf
+
