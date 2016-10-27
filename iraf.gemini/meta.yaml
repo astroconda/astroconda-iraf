@@ -22,13 +22,12 @@ source:
 requirements:
     build:
     - astroconda-iraf-helpers
-    - iraf-core !=2.16.1,>=2.16.UR
+    - iraf-core >=2.16.UR      # (build shouldn't depend on PyRAF or X11IRAF)
     - iraf.tables
     - iraf.stsdas
     - iraf.fitsutil
     run:
-    - iraf-core !=2.16.1,>=2.16.UR
-    - iraf-help !=2.16.1,>=2.16.UR
+    - iraf !=2.16.1,>=2.16.UR  # (must ensure correct run-time "iraf" version)
     - iraf.tables
     - iraf.stsdas
     - iraf.fitsutil
