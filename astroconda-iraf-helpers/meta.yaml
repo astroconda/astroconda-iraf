@@ -1,7 +1,7 @@
 about:
     home: https://github.com/astroconda/astroconda-iraf-helpers
     license: BSD
-    summary: Utilities to help build and install AstroConda packages
+    summary: Utilities to help build and install AstroConda IRAF packages
 build:
     binary_relocation: True
     #detect_binary_files_with_prefix: False [osx]
@@ -14,5 +14,9 @@ source:
 requirements:
     run:
     - iraf-core !=2.16.1,>=2.16.UR  # conda considers 2.16.1 > 2.16.UR/UR_2.16
-    - pyraf
+    # PyRAF is needed by scripts/make_iraf_help, but we're trying to replace
+    # that with $iraf/make_help, so these are commented out to avoid pulling in
+    # masses of unnecessary Python build dependencies for every IRAF package:
+    # - python x.x  # (needed to allow forcing 2.7 on command line)
+    # - pyraf
 
