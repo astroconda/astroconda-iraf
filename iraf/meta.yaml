@@ -1,7 +1,7 @@
 about:
     home: http://iraf.noao.edu
     license: MIT (and third-party licenses)
-    summary: NOAO Image Reduction and Analysis Facility (excluding help)
+    summary: NOAO Image Reduction and Analysis Facility
 build:
     binary_relocation: False  # [osx]
     detect_binary_files_with_prefix: False
@@ -10,7 +10,7 @@ build:
     - lib32/
     number: '0'
 package:
-    name: iraf-core
+    name: iraf
     version: "2.16.UR"
 requirements:
     build:

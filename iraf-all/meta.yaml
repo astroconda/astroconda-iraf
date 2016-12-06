@@ -14,7 +14,8 @@ requirements:
     # builds correctly -- the packages are listed in their build order here,
     # in the hope of circumventing that problem). 
     build:
-    - iraf !=2.16.1,>=2.16.UR  # (meta package including X11IRAF)
+    - iraf !=2.16.1,>=2.16.UR
+    - iraf-x11 >=2.0
     - iraf.fitsutil
     - iraf.tables
     - iraf.stsdas
@@ -23,7 +24,8 @@ requirements:
     # For public use, these need to be floating version numbers, to allow
     # updating constituent packages easily:
     run:
-    - iraf !=2.16.1,>=2.16.UR  # (meta package including X11IRAF)
+    - iraf !=2.16.1,>=2.16.UR
+    - iraf-x11 >=2.0
     - iraf.fitsutil
     - iraf.tables
     - iraf.stsdas
