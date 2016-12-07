@@ -1,0 +1,6 @@
+# ftp://iraf.noao.edu/iraf/v215/REPO
+reset mscred = UR_VDIR
+task  mscred.pkg = mscred$mscred.cl
+reset helpdb= ( envget("helpdb") + ",mscred$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",mscred$lib/apropos.db" )
+

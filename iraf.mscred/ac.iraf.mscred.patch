@@ -1,0 +1,18 @@
+diff -Nur ../original/numrec_list.txt ./numrec_list.txt
+--- ../original/numrec_list.txt	1969-12-31 21:00:00.000000000 -0300
++++ ./numrec_list.txt	2016-05-03 13:32:14.000000000 -0300
+@@ -0,0 +1,3 @@
++src/mscdisplay/src/gamma.x
++src/mscdisplay/src/imexam/iejimexam.x
++src/mscdisplay/src/oldimexam/iejimexam.x
+diff -Nur ../original/src/mscimage.cl ./src/mscimage.cl
+--- ../original/src/mscimage.cl	2010-12-16 18:34:59.000000000 -0300
++++ ./src/mscimage.cl	2016-05-03 13:32:14.000000000 -0300
+@@ -306,6 +306,7 @@
+ 			statsec="", lthreshold=INDEF, hthreshold=INDEF,
+ 			nlow=1, nhigh=1, nkeep=1, mclip=yes, lsigma=3.,
+ 			hsigma=3., rdnoise="0.", gain="1.", snoise="0.",
++			sigscale=0.1, pclip=-0.5, grow=0., > "dev$null")
+ 		}
+ 
+ 		# Fix up header.

@@ -1,0 +1,13 @@
+bin/libccdred.a
+bin/libcombine.a
+bin/libfinder.a
+bin/libimexam.a
+bin/libmscdisp.a
+bin/libmscred.a
+bin/libsf.a
+bin/x_ccdred.e
+bin/x_combine.e
+bin/x_finder.e
+bin/x_mscdisplay.e
+bin/x_mscexam.e
+bin/x_mscred.e
