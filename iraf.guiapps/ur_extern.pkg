@@ -1,0 +1,6 @@
+# ftp://iraf.noao.edu/iraf/v215/REPO
+reset guiapps = UR_VDIR
+task  guiapps.pkg = guiapps$guiapps.cl
+reset helpdb= ( envget("helpdb") + ",guiapps$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",guiapps$lib/apropos.db" )
+

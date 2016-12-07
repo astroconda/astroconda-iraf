@@ -1,0 +1,6 @@
+# ftp://iraf.noao.edu/iraf/v215/REPO
+reset gmisc = UR_VDIR
+task  gmisc.pkg = gmisc$gmisc.cl
+reset helpdb= ( envget("helpdb") + ",gmisc$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",gmisc$lib/apropos.db" )
+

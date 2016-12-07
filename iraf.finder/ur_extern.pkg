@@ -1,0 +1,6 @@
+# http://iraf.net/ftp/iraf/extern/
+reset finder = UR_VDIR
+task  finder.pkg = finder$finder.cl
+reset helpdb= ( envget("helpdb") + ",finder$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",finder$lib/apropos.db" )
+
