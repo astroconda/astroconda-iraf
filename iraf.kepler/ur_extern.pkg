@@ -1,0 +1,2 @@
+reset kepler = UR_VDIR
+task kepler.pkg = kepler$kepler.cl

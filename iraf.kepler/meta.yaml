@@ -1,0 +1,37 @@
+# This package is still missing dependencies in AstroConda and is not fully
+# functional yet:
+# - The package source needs patching to convert pyfits references to io.fits.
+# - The "analysis" (& "transit"?) module used by ma02.py and, in turn,
+#   lightcurve.py & keptransit.py are missing from both AstroConda and Ureka.
+
+about:
+    home: http://iraf.noao.edu/
+    license: US government notice, BSD, attribution requirement
+    summary: KEPLER package for IRAF
+build:
+    binary_relocation: False
+    number: '0'
+    # These must be copied from astroconda-iraf-helpers, since conda disallows
+    # the post-install step from depending on other packages:
+    always_include_files:
+    - bin/ac_config_iraf_pkg
+    - bin/ac_update_extern_pkg
+package:
+    name: iraf.kepler
+    version: "2.6.2"
+source:
+    fn: PyKE_2.6.2.tar
+    url: http://astroconda-source:4440/PyKE_2.6.2.tar
+requirements:
+    build:
+    - astroconda-iraf-helpers
+    - iraf !=2.16.1,>=2.16.UR
+    run:
+    - iraf !=2.16.1,>=2.16.UR
+    - pyraf
+    - astropy
+    - matplotlib
+    - numpy
+    - scipy
+    - mdp
+
