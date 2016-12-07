@@ -1,0 +1,68 @@
+diff -Nur ../original/cutoutpkg.cl ./cutoutpkg.cl
+--- ../original/cutoutpkg.cl	1969-12-31 21:00:00.000000000 -0300
++++ ./cutoutpkg.cl	2016-05-03 13:32:00.000000000 -0300
+@@ -0,0 +1,14 @@
++#{ Package script task for the cutout package, added for Ureka.
++
++print ("Parent package for cutout tasks, added in Ureka mainly to provide IRAF help")
++print ("")
++
++# cl < "cutoutpkg$lib/zzsetenv.def"
++
++package cutoutpkg, bin = cutoutpkg$
++
++task  cutout,
++      ndwfsget 	= "cutoutpkg$x_cutout.e"
++
++clbye()
++
+diff -Nur ../original/cutoutpkg.hd ./cutoutpkg.hd
+--- ../original/cutoutpkg.hd	1969-12-31 21:00:00.000000000 -0300
++++ ./cutoutpkg.hd	2016-05-03 13:32:00.000000000 -0300
+@@ -0,0 +1,10 @@
++# Help directory for the cutout package (added for UR).
++
++$doc            = "cutoutpkg$"
++$srcdir         = "cutoutpkg$"
++
++cutoutpkg	hlp=cutoutpkg$cutoutpkg.men
++
++cutout		hlp=doc$cutout.hlp,   src=srcdir$t_cutout.x
++ndwfsget	hlp=doc$ndwfsget.hlp, src=srcdir$t_ndwfsget.x
++
+diff -Nur ../original/cutoutpkg.men ./cutoutpkg.men
+--- ../original/cutoutpkg.men	1969-12-31 21:00:00.000000000 -0300
++++ ./cutoutpkg.men	2016-05-03 13:32:00.000000000 -0300
+@@ -0,0 +1,3 @@
++    cutout - Extract FITS cutout images from a survey using world coordinates
++  ndwfsget - Extract FITS cutout images from the NDWFS survey using WCS info.
++
+diff -Nur ../original/cutoutpkg.par ./cutoutpkg.par
+--- ../original/cutoutpkg.par	1969-12-31 21:00:00.000000000 -0300
++++ ./cutoutpkg.par	2016-05-03 13:32:00.000000000 -0300
+@@ -0,0 +1,2 @@
++# cutout package parameter file.
++version,s,h,"05Apr2001-UR"
+Binary files ../original/lib/helpdb.mip and ./lib/helpdb.mip differ
+diff -Nur ../original/lib/rootcutoutpkg.hd ./lib/rootcutoutpkg.hd
+--- ../original/lib/rootcutoutpkg.hd	1969-12-31 21:00:00.000000000 -0300
++++ ./lib/rootcutoutpkg.hd	2016-05-03 13:32:00.000000000 -0300
+@@ -0,0 +1,6 @@
++cutoutpkg       men  = cutoutpkg$cutoutpkg.men,
++		hlp  = cutoutpkg$cutoutpkg.men,
++		sys  = cutoutpkg$cutoutpkg.hlp,
++                pkg  = cutoutpkg$cutoutpkg.hd,
++		src  = cutoutpkg$cutoutpkg.cl
++
+diff -Nur ../original/lib/root.hd ./lib/root.hd
+--- ../original/lib/root.hd	1969-12-31 21:00:00.000000000 -0300
++++ ./lib/root.hd	2016-05-03 13:32:00.000000000 -0300
+@@ -0,0 +1 @@
++_cutoutpkg	pkg = cutoutpkg$lib/rootcutoutpkg.hd
+diff -Nur ../original/lib/zzsetenv.def ./lib/zzsetenv.def
+--- ../original/lib/zzsetenv.def	1969-12-31 21:00:00.000000000 -0300
++++ ./lib/zzsetenv.def	2016-05-03 13:32:00.000000000 -0300
+@@ -0,0 +1,3 @@
++set  cutoutpkgbin   = "cutoutpkg$bin(arch)/"
++
++keep

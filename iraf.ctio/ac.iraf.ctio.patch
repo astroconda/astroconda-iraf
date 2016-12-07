@@ -1,0 +1,29 @@
+diff -Nur ../original/ctio.cl ./ctio.cl
+--- ../original/ctio.cl	1994-02-17 12:16:43.000000000 -0300
++++ ./ctio.cl	2016-05-03 13:32:08.000000000 -0300
+@@ -12,15 +12,16 @@
+ set	fabry		= "ctio$fabry/"
+ set	manuals		= "ctio$manuals/"
+ 
+-# Apropos database. This environment variable is used by the apropos task.
+-# It should have one entry per external package, but the total string length
+-# shouldn't exceed SZ_APROPOSDB (defined in ctio$src/t_apropos.x).
+-
+-set	aproposdb	= "ctio$src/apropos/db/root.db\
+-			  ,ctio$src/apropos/db/noao.db\
+-			  ,ctio$src/apropos/db/ctio.db\
+-			  ,ctio$src/apropos/db/stsdas.db\
+-			  "
++# Ureka: don't do this; we have our own aproposdb setting instead
++# # Apropos database. This environment variable is used by the apropos task.
++# # It should have one entry per external package, but the total string length
++# # shouldn't exceed SZ_APROPOSDB (defined in ctio$src/t_apropos.x).
++# 
++# set	aproposdb	= "ctio$src/apropos/db/root.db\
++# 			  ,ctio$src/apropos/db/noao.db\
++# 			  ,ctio$src/apropos/db/ctio.db\
++# 			  ,ctio$src/apropos/db/stsdas.db\
++# 			  "
+ 
+ # Subpackages
+ 

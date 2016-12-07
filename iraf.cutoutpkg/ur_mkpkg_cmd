@@ -1,0 +1,2 @@
+mkpkg
+# mv x_cutout.e bin/  # Not found here automatically with current setup

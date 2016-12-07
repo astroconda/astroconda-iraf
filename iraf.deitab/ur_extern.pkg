@@ -1,0 +1,6 @@
+# ftp://iraf.noao.edu/iraf/v216/REPO
+reset deitab = UR_VDIR
+task  deitab.pkg = deitab$deitab.cl
+reset helpdb= ( envget("helpdb") + ",deitab$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",deitab$lib/apropos.db" )
+

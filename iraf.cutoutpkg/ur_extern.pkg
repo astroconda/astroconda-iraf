@@ -1,0 +1,6 @@
+# http://archive.noao.edu/ndwfs/data-cutout.html
+reset cutoutpkg    = UR_VDIR           # UR - define pkg to find help database
+task  cutoutpkg.pkg = cutoutpkg$cutoutpkg.cl
+reset helpdb= ( envget("helpdb") + ",cutoutpkg$lib/helpdb.mip" ) # Added for UR
+reset aproposdb= ( envget("aproposdb") + ",cutoutpkg$lib/apropos.db" ) # UR
+

@@ -1,0 +1,6 @@
+# ftp://iraf.noao.edu/iraf/v215/REPO
+reset ctio = UR_VDIR
+task  ctio.pkg = ctio$ctio.cl
+reset helpdb= ( envget("helpdb") + ",ctio$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",ctio$lib/apropos.db" )
+
