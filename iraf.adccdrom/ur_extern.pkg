@@ -1,0 +1,6 @@
+# ftp://iraf.noao.edu/iraf/v216/REPO
+reset adccdrom = UR_VDIR
+task  adccdrom.pkg = adccdrom$adccdrom.cl
+reset helpdb= ( envget("helpdb") + ",adccdrom$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",adccdrom$lib/apropos.db" )
+

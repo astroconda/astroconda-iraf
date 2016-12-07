@@ -1,0 +1,6 @@
+# ftp://iraf.noao.edu/iraf/v216/REPO
+reset cfh12k = UR_VDIR
+task  cfh12k.pkg = cfh12k$cfh12k.cl
+reset helpdb= ( envget("helpdb") + ",cfh12k$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",cfh12k$lib/apropos.db" )
+

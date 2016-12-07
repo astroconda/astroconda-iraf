@@ -1,0 +1,6 @@
+# A mkpkg has been implemented for UR (in the cirred patch), but there's
+# no lib/ directory, so the usual mkpkg -p flag needs omitting here.
+# IRAF's libcfitsio32.a is copied here beforehand by build.sh.
+
+mkpkg update
+

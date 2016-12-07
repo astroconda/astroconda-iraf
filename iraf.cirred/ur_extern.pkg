@@ -1,0 +1,5 @@
+# http://www.ctio.noao.edu/instruments/ir_instruments/datared.html
+reset cirred = UR_VDIR
+task  cirred.pkg = cirred$cirred.cl
+# cirred contains no helpdb
+

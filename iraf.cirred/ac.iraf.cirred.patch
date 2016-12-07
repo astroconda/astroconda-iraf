@@ -1,0 +1,215 @@
+diff -Nur ../original/cirred.cl ./cirred.cl
+--- ../original/cirred.cl	2007-12-13 16:07:57.000000000 -0300
++++ ./cirred.cl	2016-05-03 13:32:13.000000000 -0300
+@@ -16,26 +16,28 @@
+ 
+ package cirred
+ 
+-set pkhome = "/uwe0/blum/IRAF/scripts/"
++# set cirred = "/uwe0/blum/IRAF/scripts/"
+ 
+-task clearim    = pkhome$clearim.cl
+-task maskbad    = pkhome$maskbad.cl
+-task osiris     = pkhome$osiris.cl
+-task do_osiris  = pkhome$do_osiris.cl
+-task atmo_cor   = pkhome$atmo_cor.cl
+-task spec_comb  = pkhome$spec_comb.cl
+-task extra      = pkhome$extra.cl
+-task shift_comb = pkhome$shift_comb.cl
+-task sky_sub    = pkhome$sky_sub.cl
+-task med	= pkhome$med.cl
+-task do_wcs	= pkhome$do_wcs.cl
+-task do_ccmap	= pkhome$do_ccmap.cl
+-task irdiff	= pkhome$irdiff.cl
+-
+-task $fixfits   = $/uwe0/blum/IRAF/scripts/fixfits.e
+-task $fixfitsMEF   = $/uwe0/blum/IRAF/scripts/fixfitsMEF.e
+-task $fixbad    = $/uwe0/blum/IRAF/scripts/fixbad.e
+-task $calc_off  = $/uwe0/blum/IRAF/scripts/calc_off.e
++task clearim    = cirred$clearim.cl
++task maskbad    = cirred$maskbad.cl
++task osiris     = cirred$osiris.cl
++task do_osiris  = cirred$do_osiris.cl
++task atmo_cor   = cirred$atmo_cor.cl
++task spec_comb  = cirred$spec_comb.cl
++task extra      = cirred$extra.cl
++task shift_comb = cirred$shift_comb.cl
++task sky_sub    = cirred$sky_sub.cl
++task med	= cirred$med.cl
++task do_wcs	= cirred$do_wcs.cl
++task do_ccmap	= cirred$do_ccmap.cl
++task irdiff	= cirred$irdiff.cl
++
++# JT: These build but I'm not sure whether they're working properly on 2.15.
++# In PyRAF On OSX, I get ('Not a legal IRAF pipe record', 32, 'Broken pipe').
++task $fixfits   = cirred$bin/fixfits.e
++#task $fixfitsMEF = cirredbin/fixfitsMEF.e
++task $fixbad    = cirred$bin/fixbad.e
++task $calc_off  = cirred$bin/calc_off.e
+ 
+ keep
+ 
+diff -Nur ../original/cirred.par ./cirred.par
+--- ../original/cirred.par	1969-12-31 21:00:00.000000000 -0300
++++ ./cirred.par	2016-05-03 13:32:13.000000000 -0300
+@@ -0,0 +1 @@
++version,s,h,"29Sep2011UR"
+diff -Nur ../original/mkpkg ./mkpkg
+--- ../original/mkpkg	1969-12-31 21:00:00.000000000 -0300
++++ ./mkpkg	2016-05-11 20:25:28.000000000 -0300
+@@ -0,0 +1,155 @@
++# Make the cirred package (added for UR).
++
++update:
++	$call relink
++	$call install
++	;
++
++# SUMMARY -- [UNIX] mkpkg summary: output a summary of the spooled mkpkg
++# output, omitting most of the mundane chatter.  Used to scan large spool
++# files for errors.
++
++summary:
++	$ifeq (HOSTID, unix)
++            $ifndef (spool)
++                $set spool = spool
++            $endif
++	    ! grep -v ':$$' spool | grep -v '^xc' | grep -v '^ar'\
++	    | grep -v '^check file'
++	$else
++	    $echo "mkpkg summary only available on a UNIX system"
++	$endif
++	;
++
++relink:
++        $set	LIBS="-limfort -lsys -lvops -los"
++	$ifeq (MACH, macosx) then
++		# Set this explicitly to suppress clang warnings on MacOS
++		# >=10.9 (as with HSI_FF etc.), since setting XC_FFLAGS for all
++		# the external package builds on 10.11 seems to trigger a bug
++		# somewhere (maybe in xc.c) that enables many other warnings.
++		$set OPTS="-/Wno-return-type"
++	$else
++		$set OPTS=""
++	$endif
++	$iffile(libcfitsio32.a) then
++		# Use UR cfitsio, copied from our variant build
++	    	$xc -h $(OPTS) fixfits.f libcfitsio32.a -o fixfits.e $(LIBS)
++        $else
++		# Use the bundled cfitsio binary if available
++		$ifeq(MACH, linux) then
++ 			$xc -h fixfits.f libcfitsio_lnx.a -o fixfits.e $(LIBS)
++		$else
++			$echo "No cfitsio on this platform: fixfits not built"
++		$endif
++        $endif
++	$xc -h $(OPTS) calc_off.f -o calc_off.e $(LIBS)
++	$xc -h $(OPTS) fixbad.f -o fixbad.e $(LIBS)
++	;
++
++install:
++        $iffile(fixfits.e) then
++		$move fixfits.e  cirred$bin/fixfits.e
++        $endif
++	$move fixbad.e  cirred$bin/fixbad.e
++	$move calc_off.e  cirred$bin/calc_off.e
++        ;
++
++
++# IRAF multiple architecture support.
++# ----------------------------------------
++
++arch:					# show current float option
++showfloat:
++	$verbose off
++	!$(hlib)/mkfloat.csh
++	;
++generic:				# generic installation (no bin)
++	$ifnfile (bin.generic)
++	    !mkdir bin.generic
++	$endif
++	$verbose off
++	$set DIRS = "lib src"
++	!$(hlib)/mkfloat.csh generic -d $(DIRS)
++	;
++
++freebsd:                                # install FreeBSD binaries
++	$ifnfile (bin.freebsd)
++	    !mkdir bin.freebsd
++	$endif
++        $verbose off
++        $set DIRS = "lib src"
++        !$(hlib)/mkfloat.csh freebsd -d $(DIRS)
++        ;
++linux:                                  # install Slackwkare Linux binaries
++	$ifnfile (bin.linux)
++	    !mkdir bin.linux
++	$endif
++        $verbose off
++        $set DIRS = "lib src"
++        !$(hlib)/mkfloat.csh linux -d $(DIRS)
++        ;
++linux64:                                # install x86_64 binaries
++	$ifnfile (bin.linux64)
++	    !mkdir bin.linux64
++	$endif
++        $verbose off
++        $set DIRS = "lib src"
++        !$(hlib)/mkfloat.csh linux64 -d $(DIRS)
++        ;
++macosx:                                 # install Mac OS X (PPC) binaries
++	$ifnfile (bin.macosx)
++	    !mkdir bin.macosx
++	$endif
++        $verbose off
++        $set DIRS = "lib src"
++        !$(hlib)/mkfloat.csh macosx -d $(DIRS)
++        ;
++macintel:                               # install Mac OS X (Intel) binaries
++	$ifnfile (bin.macintel)
++	    !mkdir bin.macintel
++	$endif
++        $verbose off
++        $set DIRS = "lib src"
++        !$(hlib)/mkfloat.csh macintel -d $(DIRS)
++        ;
++cygwin:                                 # install Cygwin binaries
++	$ifnfile (bin.cygwin)
++	    !mkdir bin.cygwin
++	$endif
++        $verbose off
++        $set DIRS = "lib src"
++        !$(hlib)/mkfloat.csh cygwin -d $(DIRS)
++        ;
++redhat:                                 # install Redhat Linux binaries
++	$ifnfile (bin.redhat)
++	    !mkdir bin.redhat
++	$endif
++        $verbose off
++        $set DIRS = "lib src"
++        !$(hlib)/mkfloat.csh redhat -d $(DIRS)
++        ;
++sparc:					# install sparc binaries
++	$ifnfile (bin.sparc)
++	    !mkdir bin.sparc
++	$endif
++	$verbose off
++	$set DIRS = "lib src"
++	!$(hlib)/mkfloat.csh sparc -d $(DIRS)
++	;
++ssun:					# install Sun/Solaris binaries
++	$ifnfile (bin.ssun)
++	    !mkdir bin.ssun
++	$endif
++	$verbose off
++	$set DIRS = "lib src"
++	!$(hlib)/mkfloat.csh ssun -d $(DIRS)
++	;
++sunos:                                  # install SunOS (Solaris x86) binaries
++	$ifnfile (bin.sunos)
++	    !mkdir bin.sunos
++	$endif
++        $verbose off
++        $set DIRS = "lib src"
++        !$(hlib)/mkfloat.csh sunos -d $(DIRS)
++        ;
