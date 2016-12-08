@@ -1,0 +1,6 @@
+# ftp://iraf.noao.edu/iraf/v216/REPO
+reset mem0 = UR_VDIR
+task  mem0.pkg = mem0$mem0.cl
+reset helpdb= ( envget("helpdb") + ",mem0$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",mem0$lib/apropos.db" )
+
