@@ -1,6 +1,6 @@
 about:
     home: http://iraf.noao.edu/
-    license: IRAF MIT/X11 variant
+    license: "Use at your own risk"
     summary: UCSCLRIS package for IRAF
 build:
     binary_relocation: False
