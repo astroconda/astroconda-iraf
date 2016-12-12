@@ -1,0 +1,4 @@
+^[ 	]*here [0-9][0-9]*, previously
+^[ 	]*here subroutine, previously
+^[ 	]*here integer function, previously
+^[ 	]arg [0-9][0-9]*: here

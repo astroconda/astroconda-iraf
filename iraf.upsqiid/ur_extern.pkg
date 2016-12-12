@@ -1,0 +1,5 @@
+# ftp://iraf.noao.edu/iraf/v216/REPO
+reset upsqiid = UR_VDIR
+task  upsqiid.pkg = upsqiid$upsqiid.cl
+# upsqiid contains no help
+

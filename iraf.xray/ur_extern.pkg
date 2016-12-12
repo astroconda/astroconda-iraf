@@ -1,0 +1,5 @@
+reset xray = UR_VDIR
+task  xray.pkg = xray$xray.cl
+reset helpdb= ( envget("helpdb") + ",xray$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",xray$lib/apropos.db" )
+

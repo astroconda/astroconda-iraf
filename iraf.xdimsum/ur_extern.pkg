@@ -1,0 +1,6 @@
+# ftp://iraf.noao.edu/iraf/v215/REPO
+reset xdimsum = UR_VDIR
+task  xdimsum.pkg = xdimsum$xdimsum.cl
+reset helpdb= ( envget("helpdb") + ",xdimsum$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",xdimsum$lib/apropos.db" )
+

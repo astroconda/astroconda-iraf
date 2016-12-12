@@ -1,0 +1,171 @@
+diff -Nur ../original/lib/mkpkg.inc ./lib/mkpkg.inc
+--- ../original/lib/mkpkg.inc	2002-02-14 15:36:16.000000000 -0300
++++ ./lib/mkpkg.inc	2016-05-03 13:31:59.000000000 -0300
+@@ -53,11 +53,11 @@
+ ### Installation version ( Optimized) at sites ###
+ # 	compile flags
+ $ifeq (MACH, ddec) then
+-$set XFLAGS     = "-c -g2 -q -p xray -p tables"
++$set XFLAGS     = "-c -q -p xray -p tables"
+ $else $ifeq (MACH,dsux) then
+-$set XFLAGS     = "-c -g2 -q -p xray -p tables"
++$set XFLAGS     = "-c -q -p xray -p tables"
+ $else $ifeq (MACH, linux, redhat, freebsd) then
+-$set XFLAGS     = "-c -g2 -p xray -p tables"
++$set XFLAGS     = "-c -p xray -p tables"
+ $else
+ $set XFLAGS     = "$(XFLAGS) -c -O -q -p xray -p tables"
+ $end
+diff -Nur ../original/lib/qpcreate/uhead2qp.x ./lib/qpcreate/uhead2qp.x
+--- ../original/lib/qpcreate/uhead2qp.x	2001-03-26 16:59:51.000000000 -0400
++++ ./lib/qpcreate/uhead2qp.x	2016-05-03 13:31:59.000000000 -0300
+@@ -522,7 +522,7 @@
+ int	ip				# l: index for ctoi
+ int	ctoi()				# l: convert ascii to int
+ int	read()				# l: read data
+-int	cvti2()				# l: convert DG I*2
++short	cvti2()				# l: convert DG I*2
+ 
+ begin
+     # try to read the header
+diff -Nur ../original/xproto/evalvg/evalvg_subs.x ./xproto/evalvg/evalvg_subs.x
+--- ../original/xproto/evalvg/evalvg_subs.x	2001-03-26 17:05:15.000000000 -0400
++++ ./xproto/evalvg/evalvg_subs.x	2016-05-03 13:31:59.000000000 -0300
+@@ -607,6 +607,8 @@
+ double	jd			# l: returned julian day
+ double	refday			# l : reference julian day
+ 
++char	msg[15]                 # UR: avoid xc producing invalid ForTran
++
+ COMMON/BBLK1/MON
+ DATA MON/0,31,59,90,120,151,181,212,243,273,304,334,
+          0,31,60,91,121,152,182,213,244,274,305,335 /
+@@ -616,7 +618,14 @@
+    #               has been updated to 4 digits (YYYY)
+    #nyear = YEAR(utclk)  ## JCC
+    nyear = YEAR(utclk) - 1900
+-   call printf("  nyear = %d\n ")
++
++   # UR: silly workaround to avoid xc producing invalid ForTran by adding
++   # variable declarations after the DATA statement.
++   # Encoded string is: "  nyear = %d\n "
++   msg[0]=32; msg[1]=32; msg[2]=110; msg[3]=121; msg[4]=101; msg[5]=97
++   msg[6]=114; msg[7]=32; msg[8]=61; msg[9]=32; msg[10]=37; msg[11]=100
++   msg[12]=10; msg[13]=32; msg[14]=0
++   call printf(msg)
+    call pargi(nyear)
+ 
+    month = MONTH(utclk)
+diff -Nur ../original/xspectral/qpspec/qpspec.h ./xspectral/qpspec/qpspec.h
+--- ../original/xspectral/qpspec/qpspec.h	1997-11-06 13:43:34.000000000 -0300
++++ ./xspectral/qpspec/qpspec.h	2016-05-03 13:31:59.000000000 -0300
+@@ -40,21 +40,21 @@
+ define	N_OAHBINS	65
+ define	SZ_BINNING	(19 + N_OAHBINS*2)
+ 
+-define BN_INST		Memi($1 + 0)		# instrument
+-define BN_FULL		Memi($1 + 1)
+-define BN_XREF		Memi($1 + 2)		# the optical axis
+-define BN_YREF		Memi($1 + 3)
+-define BN_BOFF		Memi($1 + 4)		# binning offset 
+-define BN_XOFF		Memi($1 + 5)		# x offset
+-define BN_YOFF		Memi($1 + 6)		# y offset
+-define BN_INDICES	Memi($1 + 7)		# source indices
+-define BN_GOODTIME	Memd(P2D(($1)+8))	# good time from qpoe
+-define BN_UNORM		Memr($1 + 10)		# user norm factor
+-define BN_TNORM		Memr($1 + 11)		# time norm factor
+-define BN_NORMFACTOR	Memr($1 + 12)		# normalization factor
+-define BN_RADIUS	Memr($1 + 13)		# inst. radius
+-define BN_LTCOR		Memr($1 + 14)		# instr. live time corr.
+-define BN_ARCFRAC      	Memr($1 + 15)		# instr. arcing frac.
+-define BN_NOAH		Memi($1 + 16)		# number of offaxis bins
+-define BN_OAHAN		Memr($1 + 17 + $2)	# inner raduis of bin
+-define BN_OAH		Memr($1 + 18 + N_OAHBINS + $2)	# histogram bins
++define BN_INST		Memi[$1 + 0]		# instrument
++define BN_FULL		Memi[$1 + 1]
++define BN_XREF		Memi[$1 + 2]		# the optical axis
++define BN_YREF		Memi[$1 + 3]
++define BN_BOFF		Memi[$1 + 4]		# binning offset 
++define BN_XOFF		Memi[$1 + 5]		# x offset
++define BN_YOFF		Memi[$1 + 6]		# y offset
++define BN_INDICES	Memi[$1 + 7]		# source indices
++define BN_GOODTIME	Memd[P2D(($1)+8)]	# good time from qpoe
++define BN_UNORM		Memr[$1 + 10]		# user norm factor
++define BN_TNORM		Memr[$1 + 11]		# time norm factor
++define BN_NORMFACTOR	Memr[$1 + 12]		# normalization factor
++define BN_RADIUS	Memr[$1 + 13]		# inst. radius
++define BN_LTCOR		Memr[$1 + 14]		# instr. live time corr.
++define BN_ARCFRAC      	Memr[$1 + 15]		# instr. arcing frac.
++define BN_NOAH		Memi[$1 + 16]		# number of offaxis bins
++define BN_OAHAN		Memr[$1 + 17 + $2]	# inner raduis of bin
++define BN_OAH		Memr[$1 + 18 + N_OAHBINS + $2]	# histogram bins
+diff -Nur ../original/xspectral/source/logerror.x ./xspectral/source/logerror.x
+--- ../original/xspectral/source/logerror.x	1969-12-31 21:00:00.000000000 -0300
++++ ./xspectral/source/logerror.x	2016-05-03 13:31:59.000000000 -0300
+@@ -0,0 +1,13 @@
++include <math.h>
++include <mach.h>
++
++define MAX_EXPD double(MAX_EXPONENTD)
++define BAD_EXPD (-MAX_EXPD-1.0D0)
++
++double procedure logerror(value)
++double value
++#--
++
++begin
++	return BAD_EXPD
++end
+diff -Nur ../original/xspectral/source/mkpkg ./xspectral/source/mkpkg
+--- ../original/xspectral/source/mkpkg	1997-11-06 13:42:44.000000000 -0300
++++ ./xspectral/source/mkpkg	2016-05-03 13:31:59.000000000 -0300
+@@ -286,6 +286,8 @@
+ 				<einstein.h>	<rosat.h>	<astrod.h> \
+ 				<axaf.h>	<srg.h>
+ 
++        logerror.x
++
+ 	models.x		<spectral.h>	<qpoe.h>	<missions.h> \
+ 				<einstein.h>	<rosat.h>	<astrod.h> \
+ 				<axaf.h>	<srg.h>
+diff -Nur ../original/xspectral/source/models.x ./xspectral/source/models.x
+--- ../original/xspectral/source/models.x	1997-11-06 13:42:04.000000000 -0300
++++ ./xspectral/source/models.x	2016-05-03 13:31:59.000000000 -0300
+@@ -299,6 +299,7 @@
+ double	bin_energy()			# energy of this bin
+ double	gauint()			# calculate integral of gaussian
+ extern	logerror()
++#double	logerror()  # Examples exist with both extern X() & double X() decls.
+ 
+ begin
+ 
+@@ -372,13 +373,19 @@
+ 
+ end
+ 
+-define MAX_EXPD double(MAX_EXPONENTD)
+-define BAD_EXPD (-MAX_EXPD-1.0D0)
+-
+-double procedure logerror(value)
+-double value
+-#--
+-
+-begin
+-	return BAD_EXPD
+-end
++# UR: Moved this to a separate file to stop the fortran compiler complaining
++# that there are conflicting definitions (one being "extern"). I *think* this
++# is a valid way to work around the compilation error, though I wouldn't like
++# to bet my house on it. At least it gets the executable compiled with a load
++# of other stuff in it - JT.
++#
++# define MAX_EXPD double(MAX_EXPONENTD)
++# define BAD_EXPD (-MAX_EXPD-1.0D0)
++#
++# double procedure logerror(value)
++# double value
++# #--
++
++# begin
++# 	return BAD_EXPD
++# end

@@ -1,0 +1,14 @@
+bin/x_detect.e
+bin/x_eincdrom.e
+bin/x_eintools.e
+bin/x_imcalc.e
+bin/x_immodel.e
+bin/x_timcor.e
+bin/x_xdataio.e
+bin/x_ximages.e
+bin/x_xplot.e
+bin/x_xproto.e
+bin/x_xray.e
+bin/x_xspatial.e
+bin/x_xspectral.e
+bin/x_xtiming.e
