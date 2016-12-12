@@ -1,0 +1,6 @@
+# ftp://iraf.noao.edu/iraf/v216/REPO
+reset nfextern = UR_VDIR
+task  nfextern.pkg = nfextern$nfextern.cl
+reset helpdb= ( envget("helpdb") + ",nfextern$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",nfextern$lib/apropos.db" )
+

@@ -1,0 +1,3 @@
+^copy *
+^!touch*
+^(/.*/)?libtool: warning same member name *

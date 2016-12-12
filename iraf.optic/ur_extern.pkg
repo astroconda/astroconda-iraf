@@ -1,0 +1,6 @@
+# ftp://iraf.noao.edu/iraf/v216/REPO
+reset optic = UR_VDIR
+task  optic.pkg = optic$optic.cl
+reset helpdb= ( envget("helpdb") + ",optic$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",optic$lib/apropos.db" )
+

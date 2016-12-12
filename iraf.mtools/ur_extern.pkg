@@ -1,0 +1,6 @@
+# ftp://iraf.noao.edu/iraf/v216/REPO
+reset mtools = UR_VDIR
+task  mtools.pkg = mtools$mtools.cl
+reset helpdb= ( envget("helpdb") + ",mtools$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",mtools$lib/apropos.db" )
+

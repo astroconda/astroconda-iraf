@@ -1,7 +1,7 @@
 about:
     home: http://iraf.noao.edu/
     license: IRAF MIT/X11 variant
-    summary: FINDER package for IRAF
+    summary: OPTIC package for IRAF
 build:
     binary_relocation: False
     number: '0'
@@ -11,17 +11,16 @@ build:
     - bin/ac_config_iraf_pkg
     - bin/ac_update_extern_pkg
 package:
-    name: iraf.finder
-    version: "2.2"
+    name: iraf.optic
+    version: "2013_01_02"
 source:
-    fn: finder-src-2.2.tar.gz
-    url: http://astroconda-source:4440/finder-src-2.2.tar.gz
+    fn: optic-universal-2013-01-02.tar.gz
+    url: http://astroconda-source:4440/optic-universal-2013-01-02.tar.gz
 requirements:
     build:
     - astroconda-iraf-helpers
     - iraf !=2.16.1,>=2.16.UR
-    - iraf.tables
     run:
     - iraf !=2.16.1,>=2.16.UR
-    - iraf.tables
+    - iraf.mscred
 
