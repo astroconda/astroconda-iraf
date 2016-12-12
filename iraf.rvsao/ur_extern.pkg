@@ -1,0 +1,6 @@
+# ftp://iraf.noao.edu/iraf/v215/REPO
+reset rvsao = UR_VDIR
+task  rvsao.pkg = rvsao$rvsao.cl
+reset helpdb= ( envget("helpdb") + ",rvsao$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",rvsao$lib/apropos.db" )
+

@@ -1,0 +1,11 @@
+# The original rvsao tarball had problems on OSX because it contains a
+# name that is duplicated on non-case-sensitive filesystems, namely a
+# symbolic link "templates -> Templates/". For the UR, the tarball has been
+# re-generated with the symbolic link removed and the directory renamed
+# to "templates" (grep shows that the capitalized name isn't used anywhere).
+
+# Delete a dangling symbolic link that causes conda-build great offence:
+rm -f Util/Old/shdr.h
+
+# cd rvsao  # Pre-2.15
+mkpkg update

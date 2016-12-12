@@ -1,0 +1,26 @@
+about:
+    home: http://iraf.noao.edu/
+    license: IRAF MIT/X11 variant
+    summary: SONG package for IRAF
+build:
+    binary_relocation: False
+    number: '0'
+    # These must be copied from astroconda-iraf-helpers, since conda disallows
+    # the post-install step from depending on other packages:
+    always_include_files:
+    - bin/ac_config_iraf_pkg
+    - bin/ac_update_extern_pkg
+package:
+    name: iraf.song
+    version: "2013_01_02"
+source:
+    fn: song-universal-2013-01-02.tar.gz
+    url: http://astroconda-source:4440/song-universal-2013-01-02.tar.gz
+requirements:
+    build:
+    - astroconda-iraf-helpers
+    - iraf !=2.16.1,>=2.16.UR
+    run:
+    - iraf !=2.16.1,>=2.16.UR
+    - iraf.rvx  # required but currently doesn't exist in AstroConda!
+

@@ -1,0 +1,6 @@
+# ftp://iraf.noao.edu/iraf/v216/REPO
+reset song = UR_VDIR
+task  song.pkg = song$song.cl
+reset helpdb= ( envget("helpdb") + ",song$lib/helpdb.mip" )
+reset aproposdb= ( envget("aproposdb") + ",song$lib/apropos.db" )
+

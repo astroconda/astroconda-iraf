@@ -1,0 +1,5 @@
+diff -Nur ../original/numrec_list.txt ./numrec_list.txt
+--- ../original/numrec_list.txt	1969-12-31 21:00:00.000000000 -0300
++++ ./numrec_list.txt	2016-05-03 13:32:08.000000000 -0300
+@@ -0,0 +1 @@
++Util/fourm.x

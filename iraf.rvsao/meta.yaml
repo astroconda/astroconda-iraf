@@ -1,0 +1,27 @@
+about:
+    home: http://iraf.noao.edu/
+    license: SAO permissive license, Numerical Recipes
+    summary: RVSAO package for IRAF
+build:
+    binary_relocation: False
+    number: '0'
+    # These must be copied from astroconda-iraf-helpers, since conda disallows
+    # the post-install step from depending on other packages:
+    always_include_files:
+    - bin/ac_config_iraf_pkg
+    - bin/ac_update_extern_pkg
+package:
+    name: iraf.rvsao
+    version: "2.7.8"
+source:
+    fn: rvsao-src-2.7.8-ur.tar.gz
+    url: http://astroconda-source:4440/rvsao-src-2.7.8-ur.tar.gz
+    patches:
+    - ac.iraf.rvsao.patch
+requirements:
+    build:
+    - astroconda-iraf-helpers
+    - iraf !=2.16.1,>=2.16.UR
+    run:
+    - iraf !=2.16.1,>=2.16.UR
+
