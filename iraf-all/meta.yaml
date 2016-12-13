@@ -21,6 +21,30 @@ requirements:
     - iraf.stsdas
     - iraf.gemini
     - iraf.stecf
+    - iraf.kepler  # requires pyraf to run (but nothing to build)
+    - iraf.cirred
+    - iraf.ctio
+    - iraf.cutoutpkg
+    - iraf.finder
+    - iraf.gmisc
+    - iraf.guiapps
+    - iraf.mscdb
+    - iraf.mscred
+    - iraf.rvsao
+    - iraf.xdimsum
+    - iraf.xray
+    - iraf.adccdrom
+    - iraf.cfh12k
+    - iraf.deitab
+    - iraf.esowfi
+    - iraf.mem0
+    - iraf.mtools
+    - iraf.nfextern
+    - iraf.optic
+    # - iraf.song  # missing run-time dependency rvx
+    - iraf.sqiid
+    - iraf.ucsclris
+    - iraf.upsqiid
     # For public use, these need to be floating version numbers, to allow
     # updating constituent packages easily:
     run:
@@ -31,4 +55,27 @@ requirements:
     - iraf.stsdas
     - iraf.gemini
     - iraf.stecf
-
+    # - iraf.kepler  # requires pyraf to run (but not build)
+    - iraf.cirred
+    - iraf.ctio
+    - iraf.cutoutpkg
+    - iraf.finder
+    - iraf.gmisc
+    - iraf.guiapps
+    - iraf.mscdb
+    - iraf.mscred
+    - iraf.rvsao
+    - iraf.xdimsum
+    - iraf.xray
+    - iraf.adccdrom
+    - iraf.cfh12k
+    - iraf.deitab
+    - iraf.esowfi
+    - iraf.mem0
+    - iraf.mtools
+    - iraf.nfextern
+    - iraf.optic
+    # - iraf.song  # missing run-time dependency rvx
+    - iraf.sqiid
+    - iraf.ucsclris
+    - iraf.upsqiid
