@@ -21,7 +21,6 @@ requirements:
     - iraf.stsdas
     - iraf.gemini
     - iraf.stecf
-    - iraf.kepler  # requires pyraf to run (but nothing to build)
     - iraf.cirred
     - iraf.ctio
     - iraf.cutoutpkg
@@ -40,8 +39,8 @@ requirements:
     - iraf.mem0
     - iraf.mtools
     - iraf.nfextern
-    - iraf.optic
-    # - iraf.song  # missing run-time dependency rvx
+    # - iraf.optic   # seems to have broken task defs.
+    # - iraf.song    # missing run-time dependency rvx
     - iraf.sqiid
     - iraf.ucsclris
     - iraf.upsqiid
@@ -55,7 +54,6 @@ requirements:
     - iraf.stsdas
     - iraf.gemini
     - iraf.stecf
-    # - iraf.kepler  # requires pyraf to run (but not build)
     - iraf.cirred
     - iraf.ctio
     - iraf.cutoutpkg
@@ -74,8 +72,8 @@ requirements:
     - iraf.mem0
     - iraf.mtools
     - iraf.nfextern
-    - iraf.optic
-    # - iraf.song  # missing run-time dependency rvx
+    # - iraf.optic   # seems to have broken task defs.
+    # - iraf.song    # missing run-time dependency rvx
     - iraf.sqiid
     - iraf.ucsclris
     - iraf.upsqiid
