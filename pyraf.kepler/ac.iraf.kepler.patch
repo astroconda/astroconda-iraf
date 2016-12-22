@@ -1,0 +1,551 @@
+diff -Nur ../original/keparith.py ./keparith.py
+--- ../original/keparith.py	2012-07-03 01:41:39.000000000 -0400
++++ ./keparith.py	2016-12-21 20:27:17.646485000 -0300
+@@ -12,7 +12,7 @@
+ 
+ 
+ import sys
+-import pyfits
++import astropy.io.fits as pyfits
+ import matplotlib.pyplot as plt
+ import kepio, kepmsg, kepkey, kepfit, kepstat
+ from numpy import median,subtract,maximum,ones,multiply,float32,shape,absolute,mean,std,isfinite,where,nan
+diff -Nur ../original/kepbin.py ./kepbin.py
+--- ../original/kepbin.py	2012-05-18 18:34:31.000000000 -0400
++++ ./kepbin.py	2016-12-21 20:27:17.703543000 -0300
+@@ -4,7 +4,7 @@
+ sys.path.append('/usr/stsci/kepler/' )
+ import kepio, kepmsg, kepkey
+ 
+-import pyfits
++import astropy.io.fits as pyfits
+ import pylab as plt
+ from scipy.interpolate import interp1d
+ from scipy import integrate
+diff -Nur ../original/kepbls.py ./kepbls.py
+--- ../original/kepbls.py	2014-06-26 19:42:44.000000000 -0400
++++ ./kepbls.py	2016-12-21 20:27:17.723564000 -0300
+@@ -1,6 +1,6 @@
+-import numpy, scipy, sys, time, pyfits, pylab, math, re
++import numpy, scipy, sys, time, astropy.io.fits as pyfits, pylab, math, re
+ from scipy import stats
+-from pyfits import *
++from astropy.io.fits import *
+ from pylab import *
+ from matplotlib import *
+ from math import *
+diff -Nur ../original/kepclip.py ./kepclip.py
+--- ../original/kepclip.py	2013-11-23 03:27:41.000000000 -0300
++++ ./kepclip.py	2016-12-21 20:27:17.733572000 -0300
+@@ -1,6 +1,6 @@
+ 
+-import numpy, sys, time, pyfits, pylab, math, re
+-from pyfits import *
++import numpy, sys, time, astropy.io.fits as pyfits, pylab, math, re
++from astropy.io.fits import *
+ from pylab import *
+ from matplotlib import *
+ from math import *
+diff -Nur ../original/kepconvert.py ./kepconvert.py
+--- ../original/kepconvert.py	2014-03-26 18:16:28.000000000 -0300
++++ ./kepconvert.py	2016-12-21 20:27:17.791629000 -0300
+@@ -1,6 +1,6 @@
+ 
+-import numpy, sys, time, pyfits, re
+-from pyfits import *
++import numpy, sys, time, astropy.io.fits as pyfits, re
++from astropy.io.fits import *
+ from numpy import *
+ import kepio, kepmsg, kepkey
+ 
+diff -Nur ../original/kepcotrend_cl.py ./kepcotrend_cl.py
+--- ../original/kepcotrend_cl.py	2012-05-18 18:34:31.000000000 -0400
++++ ./kepcotrend_cl.py	2016-12-21 20:27:17.812648000 -0300
+@@ -25,7 +25,7 @@
+ from scipy.optimize import leastsq
+ from scipy.optimize import fmin as effmin
+ from scipy.interpolate import interp1d
+-import pyfits
++import astropy.io.fits as pyfits
+ import sys
+ from numpy.linalg import lstsq, inv
+ from numpy import interp as interpolat
+diff -Nur ../original/kepcotrend.py ./kepcotrend.py
+--- ../original/kepcotrend.py	2014-03-26 18:16:28.000000000 -0300
++++ ./kepcotrend.py	2016-12-21 20:27:17.801638000 -0300
+@@ -25,7 +25,7 @@
+ from scipy.optimize import leastsq
+ from scipy.optimize import fmin as effmin
+ from scipy.interpolate import interp1d
+-import pyfits
++import astropy.io.fits as pyfits
+ from numpy.linalg import lstsq, inv
+ from numpy import interp as interpolat
+ from numpy import *
+diff -Nur ../original/kepdeltapix.py ./kepdeltapix.py
+--- ../original/kepdeltapix.py	2013-04-25 20:45:18.000000000 -0300
++++ ./kepdeltapix.py	2016-12-21 20:27:17.834670000 -0300
+@@ -1,8 +1,8 @@
+-import pylab, numpy, pyfits
++import pylab, numpy, astropy.io.fits as pyfits
+ from pylab import *
+ from matplotlib import *
+ from numpy import *
+-from pyfits import *
++from astropy.io.fits import *
+ import kepio, kepmsg, kepkey, kepplot, kepfit, keparray
+ import sys, time, re, math, glob, random
+ 
+diff -Nur ../original/kepdetrend.py ./kepdetrend.py
+--- ../original/kepdetrend.py	2013-02-25 23:05:36.000000000 -0300
++++ ./kepdetrend.py	2016-12-21 20:27:17.844680000 -0300
+@@ -1,6 +1,6 @@
+ 
+-import numpy, sys, time, pyfits, pylab, math, re
+-from pyfits import *
++import numpy, sys, time, astropy.io.fits as pyfits, pylab, math, re
++from astropy.io.fits import *
+ from pylab import *
+ from matplotlib import *
+ from math import *
+diff -Nur ../original/kepdiffim.py ./kepdiffim.py
+--- ../original/kepdiffim.py	2012-06-08 12:16:03.000000000 -0400
++++ ./kepdiffim.py	2016-12-21 20:27:17.858694000 -0300
+@@ -1,9 +1,9 @@
+ 
+-import pylab, numpy, pyfits
++import pylab, numpy, astropy.io.fits as pyfits
+ from pylab import *
+ from matplotlib import *
+ from numpy import *
+-from pyfits import *
++from astropy.io.fits import *
+ import kepio, kepmsg, kepkey, kepplot, kepstat
+ import sys, time, re, math
+ 
+diff -Nur ../original/kepdip.py ./kepdip.py
+--- ../original/kepdip.py	2012-05-18 18:34:31.000000000 -0400
++++ ./kepdip.py	2016-12-21 20:27:17.870706000 -0300
+@@ -5,8 +5,8 @@
+ """
+ 
+ from pyraf import iraf
+-import numpy, sys, time, pyfits, pylab
+-from pyfits import *
++import numpy, sys, time, astropy.io.fits as pyfits, pylab
++from astropy.io.fits import *
+ from pylab import *
+ from matplotlib import *
+ from math import *
+diff -Nur ../original/kepdynamic.py ./kepdynamic.py
+--- ../original/kepdynamic.py	2012-06-08 12:25:45.000000000 -0400
++++ ./kepdynamic.py	2016-12-21 20:27:17.890726000 -0300
+@@ -1,6 +1,6 @@
+ 
+-import numpy, sys, time, pyfits, pylab, math, re
+-from pyfits import *
++import numpy, sys, time, astropy.io.fits as pyfits, pylab, math, re
++from astropy.io.fits import *
+ from numpy import *
+ from pylab import *
+ from matplotlib import *
+diff -Nur ../original/kepextract.py ./kepextract.py
+--- ../original/kepextract.py	2014-09-13 21:03:07.000000000 -0300
++++ ./kepextract.py	2016-12-21 20:27:17.900736000 -0300
+@@ -1,7 +1,7 @@
+ 
+-import numpy, sys, time, pyfits, pylab, math
++import numpy, sys, time, astropy.io.fits as pyfits, pylab, math
+ from numpy import *
+-from pyfits import *
++from astropy.io.fits import *
+ from pylab import *
+ from matplotlib import *
+ from scipy.optimize import leastsq
+diff -Nur ../original/kepfake.py ./kepfake.py
+--- ../original/kepfake.py	2013-09-05 11:31:51.000000000 -0400
++++ ./kepfake.py	2016-12-21 20:27:17.911747000 -0300
+@@ -1,8 +1,8 @@
+-import pylab, numpy, pyfits, scipy
++import pylab, numpy, astropy.io.fits as pyfits, scipy
+ from pylab import *
+ from matplotlib import *
+ from numpy import *
+-from pyfits import *
++from astropy.io.fits import *
+ import kepmsg, kepio, kepfunc
+ import sys, glob
+ #import kepio, kepmsg, kepkey, kepplot, kepfit, keparray, kepfunc
+diff -Nur ../original/kepffi.py ./kepffi.py
+--- ../original/kepffi.py	2013-09-16 19:37:31.000000000 -0300
++++ ./kepffi.py	2016-12-21 20:27:17.922762000 -0300
+@@ -1,5 +1,5 @@
+ 
+-import pylab, numpy, pyfits
++import pylab, numpy, astropy.io.fits as pyfits
+ from pylab import *
+ from matplotlib import *
+ from numpy import *
+diff -Nur ../original/kepfield.py ./kepfield.py
+--- ../original/kepfield.py	2014-03-25 22:04:36.000000000 -0300
++++ ./kepfield.py	2016-12-21 20:27:17.933769000 -0300
+@@ -1,9 +1,9 @@
+-import pylab, numpy, pyfits, scipy
++import pylab, numpy, astropy.io.fits as pyfits, scipy
+ from pylab import *
+ from matplotlib import *
+ from numpy import *
+ from scipy import *
+-from pyfits import *
++from astropy.io.fits import *
+ import kepio, kepmsg, kepkey, kepplot, kepfit, keparray, kepstat
+ import sys, time, re, math, glob, urllib
+ 
+diff -Nur ../original/kepfilter.py ./kepfilter.py
+--- ../original/kepfilter.py	2012-06-08 12:27:31.000000000 -0400
++++ ./kepfilter.py	2016-12-21 20:27:17.947783000 -0300
+@@ -1,6 +1,6 @@
+ 
+-import numpy, sys, time, pyfits, pylab
+-from pyfits import *
++import numpy, sys, time, astropy.io.fits as pyfits, pylab
++from astropy.io.fits import *
+ from pylab import *
+ from matplotlib import *
+ from math import *
+diff -Nur ../original/kepflatten.py ./kepflatten.py
+--- ../original/kepflatten.py	2013-10-27 14:10:42.000000000 -0300
++++ ./kepflatten.py	2016-12-21 20:27:18.033867000 -0300
+@@ -1,6 +1,6 @@
+-import numpy, scipy, sys, time, pyfits, pylab, math, re
++import numpy, scipy, sys, time, astropy.io.fits as pyfits, pylab, math, re
+ from scipy import stats
+-from pyfits import *
++from astropy.io.fits import *
+ from pylab import *
+ from matplotlib import *
+ from math import *
+diff -Nur ../original/kepfoldimg.py ./kepfoldimg.py
+--- ../original/kepfoldimg.py	2014-06-26 19:36:48.000000000 -0400
++++ ./kepfoldimg.py	2016-12-21 20:27:18.054887000 -0300
+@@ -1,7 +1,7 @@
+ from pyraf import iraf
+-import numpy, sys, time, pyfits, pylab
++import numpy, sys, time, astropy.io.fits as pyfits, pylab
+ from numpy import *
+-from pyfits import *
++from astropy.io.fits import *
+ from pylab import *
+ from matplotlib import *
+ import kepio, kepmsg, kepkey, kepstat, kepfit
+diff -Nur ../original/kepfold.py ./kepfold.py
+--- ../original/kepfold.py	2014-06-26 19:08:29.000000000 -0400
++++ ./kepfold.py	2016-12-21 20:27:18.045878000 -0300
+@@ -1,8 +1,8 @@
+ 
+-import numpy, scipy, sys, time, pyfits, pylab
++import numpy, scipy, sys, time, astropy.io.fits as pyfits, pylab
+ from numpy import *
+ from scipy import stats
+-from pyfits import *
++from astropy.io.fits import *
+ from pylab import *
+ from matplotlib import *
+ import kepio, kepmsg, kepkey, kepstat, kepfit
+diff -Nur ../original/kepft.py ./kepft.py
+--- ../original/kepft.py	2012-06-08 12:28:10.000000000 -0400
++++ ./kepft.py	2016-12-21 20:27:18.073907000 -0300
+@@ -1,6 +1,6 @@
+ 
+-import numpy, sys, time, pyfits, pylab, math, re
+-from pyfits import *
++import numpy, sys, time, astropy.io.fits as pyfits, pylab, math, re
++from astropy.io.fits import *
+ from pylab import *
+ from matplotlib import *
+ from math import *
+diff -Nur ../original/kephead.py ./kephead.py
+--- ../original/kephead.py	2014-06-26 19:34:27.000000000 -0400
++++ ./kephead.py	2016-12-21 20:27:18.096929000 -0300
+@@ -1,9 +1,9 @@
+ 
+-import pylab, numpy, pyfits
++import pylab, numpy, astropy.io.fits as pyfits
+ from pylab import *
+ from matplotlib import *
+ from numpy import *
+-from pyfits import *
++from astropy.io.fits import *
+ import kepio, kepmsg, kepkey
+ import sys, time, re
+ 
+diff -Nur ../original/kepimages.py ./kepimages.py
+--- ../original/kepimages.py	2014-08-19 20:19:26.000000000 -0400
++++ ./kepimages.py	2016-12-21 20:27:18.106938000 -0300
+@@ -1,6 +1,6 @@
+-import time, numpy, sys, pyfits
++import time, numpy, sys, astropy.io.fits as pyfits
+ from numpy import array
+-from pyfits import *
++from astropy.io.fits import *
+ import kepio, kepmsg, kepkey, kepstat
+ 
+ def kepimages(infile,outfix,imtype,ranges,clobber,verbose,logfile,status): 
+diff -Nur ../original/kepio.py ./kepio.py
+--- ../original/kepio.py	2014-09-04 12:17:40.000000000 -0400
++++ ./kepio.py	2016-12-21 20:27:18.120952000 -0300
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env python
+ 
+ import kepmsg, kepkey
+-import sys, pyfits, tempfile, os, shutil, glob, numpy, warnings
++import sys, astropy.io.fits as pyfits, tempfile, os, shutil, glob, numpy, warnings
+ 
+ # -----------------------------------------------------------
+ # delete a file
+diff -Nur ../original/kepitermask.py ./kepitermask.py
+--- ../original/kepitermask.py	2013-08-29 18:56:50.000000000 -0400
++++ ./kepitermask.py	2016-12-21 20:27:18.131966000 -0300
+@@ -1,8 +1,8 @@
+-import pylab, numpy, pyfits
++import pylab, numpy, astropy.io.fits as pyfits
+ from pylab import *
+ from matplotlib import *
+ from numpy import *
+-from pyfits import *
++from astropy.io.fits import *
+ from scipy.stats import *
+ import kepio, kepmsg, kepkey, kepplot, kepstat, kepfunc, kepfit
+ import sys, time, re, math
+diff -Nur ../original/kepkey.py ./kepkey.py
+--- ../original/kepkey.py	2014-06-26 19:15:24.000000000 -0400
++++ ./kepkey.py	2016-12-21 20:27:18.141973000 -0300
+@@ -1,7 +1,7 @@
+ #!/usr/bin/env python
+ 
+ import kepmsg, kepio
+-import pyfits, numpy
++import astropy.io.fits as pyfits, numpy
+ 
+ # -----------------------------------------------------------
+ # get keyword value
+diff -Nur ../original/kepmask.py ./kepmask.py
+--- ../original/kepmask.py	2013-11-05 21:48:39.000000000 -0300
++++ ./kepmask.py	2016-12-21 20:27:18.161993000 -0300
+@@ -1,5 +1,5 @@
+ 
+-import pylab, numpy, pyfits
++import pylab, numpy, astropy.io.fits as pyfits
+ from pylab import *
+ from matplotlib import *
+ from numpy import *
+diff -Nur ../original/kepoutlier.py ./kepoutlier.py
+--- ../original/kepoutlier.py	2014-08-23 18:02:05.000000000 -0400
++++ ./kepoutlier.py	2016-12-21 20:27:18.183014000 -0300
+@@ -1,6 +1,6 @@
+ 
+-import numpy, sys, time, pyfits, pylab, math, re
+-from pyfits import *
++import numpy, sys, time, astropy.io.fits as pyfits, pylab, math, re
++from astropy.io.fits import *
+ from pylab import *
+ from matplotlib import *
+ from math import *
+diff -Nur ../original/keppca.py ./keppca.py
+--- ../original/keppca.py	2014-09-08 04:33:38.000000000 -0300
++++ ./keppca.py	2016-12-21 20:27:18.197027000 -0300
+@@ -1,6 +1,6 @@
+ import sys, re
+-import numpy, pyfits, scipy, pylab
+-from pyfits import *
++import numpy, astropy.io.fits as pyfits, scipy, pylab
++from astropy.io.fits import *
+ from numpy import *
+ from pylab import *
+ from matplotlib import *
+diff -Nur ../original/keppixseries.py ./keppixseries.py
+--- ../original/keppixseries.py	2014-05-15 16:12:03.000000000 -0400
++++ ./keppixseries.py	2016-12-21 20:27:18.213049000 -0300
+@@ -1,9 +1,9 @@
+ 
+-import pylab, numpy, pyfits
++import pylab, numpy, astropy.io.fits as pyfits
+ from pylab import *
+ from matplotlib import *
+ from numpy import *
+-from pyfits import *
++from astropy.io.fits import *
+ import kepio, kepmsg, kepkey, kepplot, kepstat, kepfunc
+ import sys, time, re, math
+ 
+diff -Nur ../original/kepprfphot.py ./kepprfphot.py
+--- ../original/kepprfphot.py	2014-06-26 19:24:15.000000000 -0400
++++ ./kepprfphot.py	2016-12-21 21:22:32.482847000 -0300
+@@ -1,14 +1,14 @@
+-import pylab, numpy, pyfits, scipy, multiprocessing, itertools
++import pylab, numpy, astropy.io.fits as pyfits, scipy, multiprocessing, itertools
+ from pylab import *
+ from matplotlib import *
+ from numpy import *
+-from pyfits import *
++from astropy.io.fits import *
+ import kepio, kepmsg, kepkey, kepplot, kepfit, keparray, kepfunc
+ import sys, time, re, math, glob
+ from scipy import stats, interpolate, optimize, ndimage
+ from scipy.optimize import fmin_powell
+ from scipy.interpolate import RectBivariateSpline
+-from scipy.stats import nanmean
++from numpy import nanmean
+ 
+ # -----------------------------------------------------------
+ # core code
+diff -Nur ../original/kepprf.py ./kepprf.py
+--- ../original/kepprf.py	2014-09-13 23:49:53.000000000 -0300
++++ ./kepprf.py	2016-12-21 21:22:09.321038000 -0300
+@@ -1,9 +1,9 @@
+-import pylab, numpy, pyfits, scipy
++import pylab, numpy, astropy.io.fits as pyfits, scipy
+ from pylab import *
+ from matplotlib import *
+ from matplotlib import pyplot
+ from numpy import *
+-from pyfits import *
++from astropy.io.fits import *
+ import kepio, kepmsg, kepkey, kepplot, kepfit, keparray, kepfunc, kepstat
+ import sys, time, re, math, glob
+ from scipy import interpolate, optimize, ndimage, stats
+@@ -11,7 +11,7 @@
+ from scipy.interpolate import RectBivariateSpline, interp2d
+ from scipy.ndimage import interpolation
+ from scipy.ndimage.interpolation import shift, rotate
+-from scipy.stats import nanmean
++from numpy import nanmean
+ 
+ # -----------------------------------------------------------
+ # core code
+diff -Nur ../original/keprange.py ./keprange.py
+--- ../original/keprange.py	2013-11-03 20:26:09.000000000 -0300
++++ ./keprange.py	2016-12-21 20:27:18.257086000 -0300
+@@ -1,5 +1,5 @@
+ 
+-import numpy, sys, time, pyfits, pylab
++import numpy, sys, time, astropy.io.fits as pyfits, pylab
+ from numpy import *
+ from pylab import *
+ from matplotlib import *
+diff -Nur ../original/kepregr.py ./kepregr.py
+--- ../original/kepregr.py	2012-05-18 18:34:32.000000000 -0400
++++ ./kepregr.py	2016-12-21 20:27:18.277107000 -0300
+@@ -3,8 +3,8 @@
+ """
+ 
+ from pyraf import iraf
+-import numpy, sys, time, pyfits, pylab
+-from pyfits import *
++import numpy, sys, time, astropy.io.fits as pyfits, pylab
++from astropy.io.fits import *
+ from pylab import *
+ from matplotlib import *
+ from math import *
+diff -Nur ../original/kepsmooth.py ./kepsmooth.py
+--- ../original/kepsmooth.py	2012-10-23 04:20:41.000000000 -0300
++++ ./kepsmooth.py	2016-12-21 20:27:18.339167000 -0300
+@@ -1,6 +1,6 @@
+ 
+-import numpy, sys, time, pyfits, pylab
+-from pyfits import *
++import numpy, sys, time, astropy.io.fits as pyfits, pylab
++from astropy.io.fits import *
+ from pylab import *
+ from matplotlib import *
+ from math import *
+diff -Nur ../original/kepstddev.py ./kepstddev.py
+--- ../original/kepstddev.py	2014-01-18 20:14:38.000000000 -0300
++++ ./kepstddev.py	2016-12-21 20:27:18.359187000 -0300
+@@ -1,4 +1,4 @@
+-import numpy, scipy, sys, time, pyfits, pylab, copy, math
++import numpy, scipy, sys, time, astropy.io.fits as pyfits, pylab, copy, math
+ from pylab import *
+ from matplotlib import *
+ import kepio, kepmsg, kepstat, kepkey
+diff -Nur ../original/kepstitch.py ./kepstitch.py
+--- ../original/kepstitch.py	2012-09-19 05:20:26.000000000 -0300
++++ ./kepstitch.py	2016-12-21 20:27:18.368197000 -0300
+@@ -1,5 +1,5 @@
+ 
+-import numpy, sys, time, pyfits
++import numpy, sys, time, astropy.io.fits as pyfits
+ import kepio, kepmsg, kepkey, kepstat
+ 
+ def kepstitch(infiles,outfile,clobber,verbose,logfile,status): 
+diff -Nur ../original/keptimefix.py ./keptimefix.py
+--- ../original/keptimefix.py	2014-06-26 19:21:51.000000000 -0400
++++ ./keptimefix.py	2016-12-21 20:27:18.377206000 -0300
+@@ -1,6 +1,6 @@
+ import numpy as np
+ import matplotlib.pyplot as plt
+-import pyfits
++import astropy.io.fits as pyfits
+ import kepio
+ import kepmsg
+ import sys
+diff -Nur ../original/keptransitmodel.py ./keptransitmodel.py
+--- ../original/keptransitmodel.py	2012-11-14 12:48:58.000000000 -0300
++++ ./keptransitmodel.py	2016-12-21 20:27:18.399225000 -0300
+@@ -1,7 +1,7 @@
+ import lightcurve as tmod
+ import matplotlib.pyplot as plt 
+ import numpy as np 
+-import pyfits
++import astropy.io.fits as pyfits
+ from scipy.optimize import leastsq, fmin
+ #remove this line
+ import sys
+diff -Nur ../original/keptransit.py ./keptransit.py
+--- ../original/keptransit.py	2012-12-11 23:18:44.000000000 -0300
++++ ./keptransit.py	2016-12-21 20:27:18.389217000 -0300
+@@ -29,7 +29,7 @@
+ import matplotlib.pyplot as plt 
+ import numpy as np 
+ from numpy import logical_and, isfinite, nan
+-import pyfits
++import astropy.io.fits as pyfits
+ from scipy.optimize import leastsq, fmin, anneal
+ #remove this line
+ import sys
+diff -Nur ../original/keptrial.py ./keptrial.py
+--- ../original/keptrial.py	2012-06-08 12:41:58.000000000 -0400
++++ ./keptrial.py	2016-12-21 20:27:18.409236000 -0300
+@@ -1,6 +1,6 @@
+ 
+-import numpy, sys, time, pyfits, pylab, math, re
+-from pyfits import *
++import numpy, sys, time, astropy.io.fits as pyfits, pylab, math, re
++from astropy.io.fits import *
+ from pylab import *
+ from matplotlib import *
+ import matplotlib.mlab as mlab
+diff -Nur ../original/keptrim.py ./keptrim.py
+--- ../original/keptrim.py	2014-09-04 12:11:05.000000000 -0400
++++ ./keptrim.py	2016-12-21 20:27:18.419246000 -0300
+@@ -1,6 +1,6 @@
+-import numpy, sys, time, pyfits, pylab, urllib
++import numpy, sys, time, astropy.io.fits as pyfits, pylab, urllib
+ from numpy import *
+-from pyfits import *
++from astropy.io.fits import *
+ from pylab import *
+ from matplotlib import *
+ import kepio, kepmsg, kepkey, kepstat
+diff -Nur ../original/kepwindow.py ./kepwindow.py
+--- ../original/kepwindow.py	2012-06-08 12:42:53.000000000 -0400
++++ ./kepwindow.py	2016-12-21 20:27:18.429257000 -0300
+@@ -1,6 +1,6 @@
+ 
+-import numpy, sys, time, pyfits, pylab, math, re
+-from pyfits import *
++import numpy, sys, time, astropy.io.fits as pyfits, pylab, math, re
++from astropy.io.fits import *
+ from pylab import *
+ from matplotlib import *
+ from math import *
