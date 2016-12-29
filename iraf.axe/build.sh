@@ -1,6 +1,10 @@
-# Install aXe binaries into STSDAS in the same way as the Ureka pkg-install:
+# Install aXe binaries into STSDAS in the same way as the Ureka pkg-install.
 
 cd ccc
+
+# I'd have thought conda-build would take care of this but it appears not to:
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$PREFIX/lib"
+export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$PREFIX/lib"
 
 ./configure --prefix="$PREFIX" --with-cfitsio-prefix="$PREFIX" \
             --with-wcstools-prefix="$PREFIX/lib" --build=x86 \
