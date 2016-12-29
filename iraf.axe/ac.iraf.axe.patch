@@ -1,0 +1,65 @@
+diff -Nur ../original/ccc/configure ./ccc/configure
+--- ../original/ccc/configure	2013-03-14 12:47:20.000000000 -0300
++++ ./ccc/configure	2016-12-29 13:12:12.724401161 -0300
+@@ -2789,15 +2789,15 @@
+ echo $ECHO_N "checking for wcstools... $ECHO_C" >&6
+      CPPFLAGS="$CPPFLAGS -I$withval"
+      LIBS="$LIBS $withval/libwcs.a"
+-     echo "$as_me:2792: checking for libwcs/wcs.h" >&5
+-echo $ECHO_N "checking for libwcs/wcs.h... $ECHO_C" >&6
++     echo "$as_me:2792: checking for wcs.h" >&5
++echo $ECHO_N "checking for wcs.h... $ECHO_C" >&6
+ if test "${ac_cv_header_libwcs_wcs_h+set}" = set; then
+   echo $ECHO_N "(cached) $ECHO_C" >&6
+ else
+   cat >conftest.$ac_ext <<_ACEOF
+ #line 2798 "configure"
+ #include "confdefs.h"
+-#include <libwcs/wcs.h>
++#include <wcs.h>
+ _ACEOF
+ if { (eval echo "$as_me:2802: \"$ac_cpp conftest.$ac_ext\"") >&5
+   (eval $ac_cpp conftest.$ac_ext) 2>conftest.er1
+@@ -2851,15 +2851,15 @@
+      CPPFLAGS="$CPPFLAGS -I$WCSLIB_PREFIX"
+      LIBS="$LIBS $WCSLIB_PREFIX/libwcs.a"
+    fi
+-   echo "$as_me:2854: checking for libwcs/wcs.h" >&5
+-echo $ECHO_N "checking for libwcs/wcs.h... $ECHO_C" >&6
++   echo "$as_me:2854: checking for wcs.h" >&5
++echo $ECHO_N "checking for wcs.h... $ECHO_C" >&6
+ if test "${ac_cv_header_libwcs_wcs_h+set}" = set; then
+   echo $ECHO_N "(cached) $ECHO_C" >&6
+ else
+   cat >conftest.$ac_ext <<_ACEOF
+ #line 2860 "configure"
+ #include "confdefs.h"
+-#include <libwcs/wcs.h>
++#include <wcs.h>
+ _ACEOF
+ if { (eval echo "$as_me:2864: \"$ac_cpp conftest.$ac_ext\"") >&5
+   (eval $ac_cpp conftest.$ac_ext) 2>conftest.er1
+diff -Nur ../original/ccc/src/aXe_TEST.c ./ccc/src/aXe_TEST.c
+--- ../original/ccc/src/aXe_TEST.c	2013-03-14 12:47:20.000000000 -0300
++++ ./ccc/src/aXe_TEST.c	2016-12-29 13:12:38.117460090 -0300
+@@ -22,7 +22,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <fitsio.h>
+-#include "libwcs/wcs.h"
++#include "wcs.h"
+ 
+ struct WorldCoor *get_wcs_l(char filename[], int hdunum);
+ char      *get_fits_header_l(char filename[], int hdunum);
+diff -Nur ../original/ccc/src/spc_CD.h ./ccc/src/spc_CD.h
+--- ../original/ccc/src/spc_CD.h	2013-03-14 12:47:20.000000000 -0300
++++ ./ccc/src/spc_CD.h	2016-12-29 13:12:50.853490074 -0300
+@@ -11,7 +11,7 @@
+ #include <fitsio.h>
+ #include <string.h>
+ #include "aXe_grism.h"
+-#include "libwcs/wcs.h"
++#include "wcs.h"
+ #include "aXe_errors.h"
+ 
+ 

@@ -1,0 +1,31 @@
+# This is not really an IRAF package per se, but is called "iraf.axe" because
+# it's an add-on for STSDAS and the intention is to distribute a stand-alone
+# version later as a separate package (presumably "axe").
+about:
+    home: http://axe-info.stsci.edu
+    license: GPL
+    summary: STScI/STECF aXe add-on for the STSDAS IRAF package
+build:
+    binary_relocation: True
+    number: '0'
+package:
+    name: iraf.axe
+    version: "2.5"
+source:
+    fn: aXeTZ-2.5.tar.gz
+    url: http://astroconda-source:4440/aXeTZ-2.5.tar.gz
+    patches:
+    - ac.iraf.axe.patch  # patched to find include files for recent wcstools
+requirements:
+    build:
+    # is pkgconfig also needed here, as per Joe's email?
+    - cfitsio >=3.35
+    - wcstools >=3.8.4
+    - gsl >=1.14
+    run:
+    - iraf !=2.16.1,>=2.16.UR  # need dir struct associated with this IRAF ver
+    - iraf.stsdas
+    - cfitsio >=3.35
+    - wcstools >=3.8.4
+    - gsl >=1.14
+
