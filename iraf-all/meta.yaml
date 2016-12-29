@@ -21,6 +21,7 @@ requirements:
     - iraf.stsdas
     - iraf.gemini
     - iraf.stecf
+    # - iraf.axe     # hack: this must be built on CentOS >5; do separately
     - iraf.cirred
     - iraf.ctio
     - iraf.cutoutpkg
@@ -54,6 +55,7 @@ requirements:
     - iraf.stsdas
     - iraf.gemini
     - iraf.stecf
+    - iraf.axe
     - iraf.cirred
     - iraf.ctio
     - iraf.cutoutpkg
