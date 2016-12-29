@@ -1,0 +1,24 @@
+# A meta-package including PyRAF and any external IRAF-style packages that
+# require it (and therefore don't belong in iraf-all).
+#
+# Currently this is not really useful, since the kepler package is broken.
+
+about:
+    home: http://www.stsci.edu/institute/software_hardware/pyraf
+    license: various (see individual packages)
+    summary: PyRAF and the external IRAF-style packages that require it
+build:
+    number: '0'
+package:
+    name: pyraf-all
+    version: "1.0"
+requirements:
+    build:
+    - iraf !=2.16.1,>=2.16.UR  # external pkgs here need the ".UR" build
+    - pyraf
+    - pyraf.kepler
+    run:
+    - iraf !=2.16.1,>=2.16.UR  # should this be iraf-all, to get everything?
+    - pyraf
+    - pyraf.kepler
+
