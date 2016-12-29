@@ -31,18 +31,18 @@ mkdir -p "$PREFIX"/etc/conda/{activate.d,deactivate.d}
 
 echo '
 if [ -n "$CONDA_PREFIX" ]; then
-    source $CONDA_PREFIX/bin/setup_iraf.sh
+    . $CONDA_PREFIX/bin/setup_iraf.sh
 else
-    source $CONDA_ENV_PATH/bin/setup_iraf.sh
+    . $CONDA_ENV_PATH/bin/setup_iraf.sh
 fi
 ' > "$PREFIX/etc/conda/activate.d/iraf.sh"
 chmod 755 "$PREFIX/etc/conda/activate.d/iraf.sh"
 
 echo '
 if [ -n "$CONDA_PREFIX" ]; then
-    source $CONDA_PREFIX/bin/forget_iraf.sh
+    . $CONDA_PREFIX/bin/forget_iraf.sh
 else
-    source $CONDA_ENV_PATH/bin/forget_iraf.sh
+    . $CONDA_ENV_PATH/bin/forget_iraf.sh
 fi
 ' > "$PREFIX/etc/conda/deactivate.d/iraf.sh"
 chmod 755 "$PREFIX/etc/conda/deactivate.d/iraf.sh"
