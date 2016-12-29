@@ -1,1 +1,1 @@
-"$PREFIX/bin/ac_config_iraf_pkg" --remove ctio
+"$PREFIX/bin/ac_config_iraf_pkg" --remove ctio  2>/dev/null; :

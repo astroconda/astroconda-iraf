@@ -1,1 +1,1 @@
-"$PREFIX/bin/ac_config_iraf_pkg" --remove fitsutil
+"$PREFIX/bin/ac_config_iraf_pkg" --remove fitsutil  2>/dev/null; :

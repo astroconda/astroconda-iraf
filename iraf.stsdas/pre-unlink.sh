@@ -1,1 +1,1 @@
-"$PREFIX/bin/ac_config_iraf_pkg" --remove stsdas
+"$PREFIX/bin/ac_config_iraf_pkg" --remove stsdas  2>/dev/null; :
