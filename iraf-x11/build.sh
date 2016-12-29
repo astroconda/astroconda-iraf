@@ -12,8 +12,8 @@ printenv   > build_log 2>&1
 ./build 32 >> build_log 2>&1
 
 # Copy files into PREFIX
-mkdir -p $PREFIX/{bin,include,lib,share}
-./install.bin $PREFIX
-./install.lib $PREFIX
-./install.man $PREFIX/share
+mkdir -p "$PREFIX"/{bin,include,lib,share}
+./install.bin "$PREFIX"
+./install.lib "$PREFIX"
+./install.man "$PREFIX/share"
 
