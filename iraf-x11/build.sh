@@ -9,11 +9,12 @@ export iraf=$PREFIX/iraf/
 
 # Execute build
 printenv   > build_log 2>&1
-./build 32 >> build_log 2>&1
+./build 32 >> build_log 2>&1 || exit 1
 
-# Copy files into PREFIX
-mkdir -p "$PREFIX"/{bin,include,lib,share}
-./install.bin "$PREFIX"
-./install.lib "$PREFIX"
-./install.man "$PREFIX/share"
+# Copy files into PREFIX (including obligatory licensing info.)
+mkdir -p "$PREFIX"/{bin,include,lib,share} || exit 1
+./install.bin "$PREFIX" || exit 1
+./install.lib "$PREFIX" || exit 1
+./install.man "$PREFIX/share" || exit 1
+./install.doc "$PREFIX/share" || exit 1
 
