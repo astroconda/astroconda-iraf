@@ -18,3 +18,6 @@ make || exit 1
 stdir=$PREFIX/iraf_extern/stsdas
 mkdir -p "$stdir/bin" && cp -p bin/* "$stdir/bin/" || exit 1
 
+# Install obligatory licensing information (best kept in pkg with binaries):
+cp -p "$RECIPE_DIR/copyright.aXe" "$stdir/" || exit 1
+
