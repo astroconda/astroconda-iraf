@@ -5,10 +5,10 @@ about:
     summary: Gemini Distortion Correction and Stacking Utility (for GSAOI)
 build:
     binary_relocation: True
-    number: '2'
+    number: '0'
 package:
     name: disco_stu
-    version: "1.3.4.dev"
+    version: "1.3.4"
 source:
     # fn: disco_stu-1.3.4.tar.gz
     # url: http://www.gemini.edu/sciops/data/software/disco_stu-1.3.4.tar.gz
