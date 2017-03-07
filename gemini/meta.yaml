@@ -1,0 +1,33 @@
+# conda-build --python=x.x --prefix-length=70 gemini
+about:
+    home: http://www.gemini.edu/sciops/data-and-results/processing-software
+    license: BSD & (for Gemini IRAF) non-commercial use
+    summary: Collection of Gemini data reduction packages (meta-package)
+build:
+    number: '0'
+package:
+    name: gemini
+    version: 1.0
+requirements:
+    # Building this meta-package separately for every python version should
+    # allow us to generate all its constituent packages by listing them as
+    # build dependencies here (which also seems to be what stsci does; as long
+    # as older versions aren't picked up), but it is currently better to build
+    # python packages explicitly beforehand, to avoid imposing IRAF's 70-char
+    # path length on them, until such time as that can be defined in meta.yaml
+    # (also, disco_stu currently won't build in a 70-char path due to some
+    # texlive path length mismatch).
+    # build:
+    # - python x.x
+    # - iraf.gemini >1
+    # # - gemini_python >1
+    # - disco_stu >1
+    # Let these versions float so users can "update" them individually, but
+    # avoid picking up internal versions from the gemini channel (the matching
+    # logic considers numbers greater than letters).
+    run:
+    # - python x.x
+    - iraf.gemini >1
+    # - gemini_python >1
+    - disco_stu >1
+
