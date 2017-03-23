@@ -3,7 +3,7 @@ about:
     license: various (see individual packages)
     summary: IRAF, X11IRAF & all the AstroConda external IRAF packages
 build:
-    number: '0'
+    number: '1'
 package:
     name: iraf-all
     version: "1.0"

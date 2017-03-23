@@ -8,16 +8,14 @@ build:
     number: '0'
 package:
     name: astroconda-iraf-helpers
-    version: "0.1"
+    version: "0.1.1"
 source:
     git_url: https://github.com/astroconda/astroconda-iraf-helpers.git
 requirements:
     run:
     - iraf !=2.16.1,>=2.16.UR  # conda considers 2.16.1 > 2.16.UR/UR_2.16
 
-    # PyRAF is needed by scripts/make_iraf_help, but we're trying to replace
-    # that with $iraf/make_help, so these are commented out to avoid pulling in
-    # masses of unnecessary Python build dependencies for every IRAF package:
-    # - python x.x  # (needed to allow forcing 2.7 on command line)
-    # - pyraf
+    # PyRAF is needed by scripts/make_iraf_help, but that is now deprecated in
+    # favour of $iraf/make_help, so python & pyraf been removed here, to avoid
+    # pulling in masses of unnecessary build deps for every IRAF package.
 
