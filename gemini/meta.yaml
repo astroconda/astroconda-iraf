@@ -4,7 +4,7 @@ about:
     license: BSD & (for Gemini IRAF) non-commercial use
     summary: Collection of Gemini data reduction packages (meta-package)
 build:
-    number: '0'
+    number: '1'
 package:
     name: gemini
     version: 1.0
