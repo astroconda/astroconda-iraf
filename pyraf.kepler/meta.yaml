@@ -24,8 +24,7 @@ requirements:
     - iraf !=2.16.1,>=2.16.UR
     - pyraf
     - astropy
-    - matplotlib==1.5.3
+    - matplotlib
     - numpy
     - scipy
     - mdp
-
