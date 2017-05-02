@@ -8,7 +8,7 @@ build:
     # (if binary relocation is problematic, add "ignore_prefix_files" below)
     rpaths:
     - lib32/
-    number: '0'
+    number: '1'
 package:
     name: iraf
     version: "2.16.UR"
