@@ -1,14 +1,7 @@
-# Note that this package is NOT fully working in AstroConda. It has been
-# patched to use astropy.io.fits (etc.) but the functionality has not been
-# tested properly. The "analysis" & "transit" modules used by lightcurve.py &
-# keptransit.py (via ma02.py) are missing from both AstroConda and Ureka.
-# The deprecated scipy.optimize.anneal in keptransit.py needs replacing with
-# optimize.basinhopping (possibly amongst other API changes).
-
 about:
-    home: http://iraf.noao.edu/
+    home: https://github.com/KeplerGO/PyKE/
     license: US government notice, BSD, attribution requirement
-    summary: KEPLER package for PyRAF
+    summary: A suite of Python/PyRAF tools to analyze Kepler data
 build:
     binary_relocation: False
     number: '0'
@@ -19,17 +12,17 @@ build:
     - bin/ac_update_extern_pkg
 package:
     name: pyraf.kepler
-    version: "2.6.2"
+    version: "2.6.3"
 source:
-    fn: PyKE_2.6.2.tar
-    url: http://astroconda-source:4440/PyKE_2.6.2.tar
-    patches:
-    - ac.iraf.kepler.patch  # converts pyfits imports to io.fits for AstroConda
+    fn: v2.6.3.tar.gz
+    url: https://github.com/KeplerGO/PyKE/archive/v2.6.3.tar.gz
 requirements:
     build:
+    - python
     - astroconda-iraf-helpers
     - iraf !=2.16.1,>=2.16.UR
     run:
+    - python
     - iraf !=2.16.1,>=2.16.UR
     - pyraf
     - astropy
@@ -37,4 +30,3 @@ requirements:
     - numpy
     - scipy
     - mdp
-
