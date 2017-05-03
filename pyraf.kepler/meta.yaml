@@ -18,9 +18,11 @@ source:
     url: https://github.com/KeplerGO/PyKE/archive/v2.6.3.tar.gz
 requirements:
     build:
+    - python
     - astroconda-iraf-helpers
     - iraf !=2.16.1,>=2.16.UR
     run:
+    - python
     - iraf !=2.16.1,>=2.16.UR
     - pyraf
     - astropy
