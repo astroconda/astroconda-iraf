@@ -5,7 +5,7 @@ about:
     summary: Gemini IRAF package
 build:
     binary_relocation: False
-    number: '1'
+    number: '0'
     # These must be copied from astroconda-iraf-helpers, as conda unhelpfully
     # disallows the post-install step from depending on other packages:
     always_include_files:
@@ -13,12 +13,12 @@ build:
     - bin/ac_update_extern_pkg
 package:
     name: iraf.gemini
-    version: "1.13.1"
+    version: "1.14"
 source:
-    fn: gemini_v1131_for_iraf_2.16.tar.gz
-    url: http://astroconda-source:4440/gemini_v1131_for_iraf_2.16.tar.gz
-    patches:
-    - ac.iraf.gemini.patch
+    fn: gemini_v114.tar.gz
+    url: http://astroconda-source:4440/gemini_v114.tar.gz
+    #patches:
+    #- ac.iraf.gemini.patch
 requirements:
     build:
     - astroconda-iraf-helpers
