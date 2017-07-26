@@ -3,6 +3,10 @@
 # eval $PREFIX/iraf/unix/hlib/setup directly if "--level" needs specifying):
 . setup_iraf.sh
 
+# As of v1.14, the "source" tarball contains some unwanted Apple binaries that
+# mess up linking unless removed:
+find . \( -name "*.a" -o -name "*.o" \) -exec rm -f {} \;
+
 # Build from source in envs/_build (using build script from astroconda-utils):
 ac_build_iraf_pkg
 
