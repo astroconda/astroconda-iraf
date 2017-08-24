@@ -1,0 +1,31 @@
+about:
+    home: http://drforum.gemini.edu/topic/pyfu-datacube-mosaicking-package
+    license: BSD
+    license_file: LICENSE
+    summary: IFU datacube mosaicking package for PyRAF and Python
+build:
+    number: '0'
+    # These must be copied from astroconda-iraf-helpers, as conda unhelpfully
+    # disallows the post-install step from depending on other packages:
+    always_include_files:
+    - bin/ac_config_iraf_pkg
+    - bin/ac_update_extern_pkg
+package:
+    name: pyfu
+    version: "0.9"
+source:
+    svn_url: http://scisoft.gemini.edu/svn/ifudr/pyfu/0.9
+requirements:
+    build:
+    - astroconda-iraf-helpers
+    - python x.x                # syntax needed to build for each python ver.
+    run:
+    - python x.x
+    - numpy >=1.9               # (use same version as disco-stu)
+    - scipy >=0.14              # (to match the NumPy requirement)
+    - astropy >=1.0
+    - stsci.imagestats >=1.4
+    # PyRAF is an optional dependency if the IRAF interface is used but is not
+    # needed by the Python interface so don't require it here, as that would
+    # also drag in IRAF etc.
+

@@ -1,0 +1,3 @@
+reset pyfu = UR_VDIR
+task  pyfu.pkg = pyfu$pyfu.cl
+
