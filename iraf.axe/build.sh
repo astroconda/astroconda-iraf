@@ -5,6 +5,10 @@
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$PREFIX/lib"
 export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$PREFIX/lib"
 
+# Compilation of the old GSL version fails on clang without allowing for some
+# deprecated C usage, as when building IRAF:
+export CFLAGS="$CFLAGS -Wno-return-type"
+
 set -e
 
 # Creating a dummy STSDAS directory as the install target avoids having IRAF
@@ -16,8 +20,12 @@ mkdir -p "$stdir/bin"
 
 echo "Build static GSL (old version needed by aXe)"
 
+# Put static GSL in a temporary location, because we don't need to distribute
+# its headers & documentation, which might conflict with the gsl conda package,
+# plus installing its docs to $PREFIX/info causes conda-build 3.0 to fail.
 cd gsl
-./configure --prefix="$PREFIX" --disable-shared --enable-static --build=x86
+./configure --prefix="${SRC_DIR}/gsl_build" --disable-shared --enable-static \
+	    --build=x86
 make
 make install
 # here the GSL COPYRIGHT is covered by aXe's own GPL notice
@@ -27,7 +35,7 @@ echo "Build aXe"
 cd ../aXe/ccc
 ./configure --prefix="$PREFIX" --with-cfitsio-prefix="$PREFIX" \
             --with-wcstools-prefix="$PREFIX/lib" --build=x86 \
-            --with-gsl-prefix="$PREFIX"
+            --with-gsl-prefix="${SRC_DIR}/gsl_build"
 make
 
 echo "Install aXe into STSDAS path"
