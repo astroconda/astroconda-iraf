@@ -15,10 +15,12 @@ package:
 requirements:
     build:
     - iraf !=2.16.1,>=2.16.UR  # external pkgs here need the ".UR" build
+    - python                   # needed just to get py2/3-specific builds
     - pyraf
-    - pyraf.kepler
+    - pyraf.kepler # [py2k]
     run:
     - iraf !=2.16.1,>=2.16.UR  # should this be iraf-all, to get everything?
+    - python
     - pyraf
-    - pyraf.kepler
+    - pyraf.kepler # [py2k]    # the authors only support Py 2, as of May 2017
 
