@@ -7,7 +7,7 @@ about:
     summary: STScI/STECF aXe add-on for the STSDAS IRAF package
 build:
     binary_relocation: True
-    number: '1'
+    number: '2'
 package:
     name: iraf.axe
     version: "2.6"
@@ -23,11 +23,13 @@ source:
 requirements:
     build:
     # is pkgconfig also needed here, as per Joe's email?
+    - iraf !=2.16.1,>=2.16.UR  # IRAF is just used to determine install paths
+    - iraf.stsdas              # just to install into; not a real build dep.
     - cfitsio >=3.35
     - wcstools >=3.8.4
     run:
     - iraf !=2.16.1,>=2.16.UR
-    - iraf.stsdas >=3.18  # need 3.18 versions of Python files in "slitless" 
+    - iraf.stsdas >=3.18.1     # need v3.18.1 of python files in "slitless" 
     - cfitsio >=3.35
     - wcstools >=3.8.4
 
