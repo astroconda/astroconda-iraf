@@ -4,6 +4,7 @@ about:
     summary: STScI TABLES package for IRAF
 build:
     binary_relocation: False
+    detect_binary_files_with_prefix: False
     number: '0'
     # These must be copied from astroconda-iraf-helpers, as conda unhelpfully
     # disallows the post-install step from depending on other packages:
@@ -12,11 +13,11 @@ build:
     - bin/ac_update_extern_pkg
 package:
     name: iraf.tables
-    version: "3.18.1"
+    version: "3.18.2"
 source:
     # You must upload your ssh key to github to check out this private repo:
     git_url: git@github.com:spacetelescope/stsdas.git
-    git_tag: 3.18.1
+    git_tag: 3.18.2
     patches:
     - ac.iraf.stsci.patch
 requirements:
