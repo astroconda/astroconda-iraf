@@ -10,7 +10,7 @@ build:
     number: '0'
 package:
     name: iraf.axe
-    version: "2.6.1"
+    version: "2.6.2"
 source:
     # The aXe 2.6 release is built from the 2.5 source, but with its version
     # updated to go with some changes to associated Python files in STSDAS.
@@ -29,7 +29,7 @@ requirements:
     - wcstools >=3.8.4
     run:
     - iraf !=2.16.1,>=2.16.UR
-    - iraf.stsdas >=3.18.2     # need v3.18.2 of python files in "slitless" 
+    - iraf.stsdas >=3.18.3     # need this ver. of python files in "slitless" 
     - cfitsio >=3.35
     - wcstools >=3.8.4
 
