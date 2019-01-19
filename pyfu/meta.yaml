@@ -4,7 +4,7 @@ about:
     license_file: LICENSE
     summary: IFU datacube mosaicking package for PyRAF and Python
 build:
-    number: '0'
+    number: '1'
     # These must be copied from astroconda-iraf-helpers, as conda unhelpfully
     # disallows the post-install step from depending on other packages:
     always_include_files:
@@ -28,4 +28,3 @@ requirements:
     # PyRAF is an optional dependency if the IRAF interface is used but is not
     # needed by the Python interface so don't require it here, as that would
     # also drag in IRAF etc.
-
