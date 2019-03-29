@@ -6,10 +6,10 @@ build:
     number: '0'
 package:
     name: astroconda-iraf-helpers
-    version: "0.1.4"
+    version: "0.2.0"
 source:
     git_url: https://github.com/astroconda/astroconda-iraf-helpers.git
-    git_tag: v0.1.4
+    git_tag: v0.2.0
 requirements:
     run:
     - iraf !=2.16.1,>=2.16.UR  # conda considers 2.16.1 > 2.16.UR/UR_2.16
