@@ -8,15 +8,18 @@ build:
     # (if binary relocation is problematic, add "ignore_prefix_files" below)
     rpaths:
     - lib32/
-    number: '1'
+    number: '0'
 package:
     name: iraf
-    version: "2.16.UR"
+    version: "2.16.UR.1"
 requirements:
     build:
     - iraf-os-libs  # [linux]
     run:
     - iraf-os-libs  # [linux]
 source:
-    svn_url: https://aeon.stsci.edu/ssb/svn/u-rel/iraf-2.16/trunk
+    # You must upload your ssh key to github to check out this private repo:
+    #git_url: git@github.com:spacetelescope/iraf.git
+    git_url: https://github.com/spacetelescope/iraf.git
+    git_tag: 2.16.UR.1
 
