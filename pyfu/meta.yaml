@@ -12,9 +12,9 @@ build:
     - bin/ac_update_extern_pkg
 package:
     name: pyfu
-    version: "0.9"
+    version: "0.10"
 source:
-    svn_url: http://scisoft.gemini.edu/svn/ifudr/pyfu/0.9
+    svn_url: http://scisoft.gemini.edu/svn/ifudr/pyfu/0.10
 requirements:
     build:
     - astroconda-iraf-helpers
