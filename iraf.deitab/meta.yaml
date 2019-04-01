@@ -4,7 +4,7 @@ about:
     summary: DEITAB package for IRAF
 build:
     binary_relocation: False
-    number: '1'
+    number: '2'
     # These must be copied from astroconda-iraf-helpers, since conda disallows
     # the post-install step from depending on other packages:
     always_include_files:

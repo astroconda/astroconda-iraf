@@ -7,7 +7,7 @@ about:
     summary: STScI/STECF aXe add-on for the STSDAS IRAF package
 build:
     binary_relocation: True
-    number: '1'
+    number: '2'
 package:
     name: iraf.axe
     version: "2.6.2"
