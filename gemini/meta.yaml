@@ -4,10 +4,10 @@ about:
     license: BSD & (for Gemini IRAF) non-commercial use
     summary: Collection of Gemini data reduction packages (meta-package)
 build:
-    number: '1'
+    number: '0'
 package:
     name: gemini
-    version: 1.0
+    version: 2.0
 requirements:
     # Building this meta-package separately for every python version should
     # allow us to generate all its constituent packages by listing them as
@@ -20,14 +20,14 @@ requirements:
     # build:
     # - python x.x
     # - iraf.gemini >1
-    # # - gemini_python >1
+    # # - dragons >1
     # - disco_stu >1
     # Let these versions float so users can "update" them individually, but
     # avoid picking up internal versions from the gemini channel (the matching
     # logic considers numbers greater than letters).
     run:
-    # - python x.x
+    # - python x.x    # meta package need not be tied to a Python ver.
     - iraf.gemini >1
-    # - gemini_python >1
+    - dragons >1
     - disco_stu >1
 
