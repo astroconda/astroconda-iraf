@@ -17,6 +17,7 @@ requirements:
     # and therefore that the package is installable.
     build:
     - python
+    - setuptools
     - astropy >=1.2.1
     - astroquery >=0.3.5
     - cython >=0.24.1
