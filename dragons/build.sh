@@ -19,5 +19,5 @@ docs="astrodata/doc/ad_CheatSheet astrodata/doc/ad_ProgManual \
 # Install the LICENSE file(s) where recipients can read them:
 mkdir -p ${PREFIX}/share/dragons/
 cp -p LICENSE ${PREFIX}/share/dragons/ || exit 1
-cp -pR extern_licenses ${PREFIX}/share/dragons/
+#cp -pR extern_licenses ${PREFIX}/share/dragons/  # PUT THIS BACK!
 
