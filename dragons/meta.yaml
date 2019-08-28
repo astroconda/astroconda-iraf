@@ -3,11 +3,11 @@ build:
     number: '0'
 package:
     name: dragons
-    version: "2.1.0rc1"
+    version: "2.1.0rc2"
 source:
     git_url: https://github.com/GeminiDRSoftware/DRAGONS.git
     # git_tag: v2.1.0  # TBC
-    git_tag: d5d553e37d3b36ff
+    git_tag: dca379902ede2e00
 about:
     home: http://www.gemini.edu/sciops/data-and-results/processing-software
     license: BSD
@@ -21,11 +21,13 @@ requirements:
     - setuptools
     - astropy >=2
     - astroquery >=0.3.5
+    - configparser >=3.5        # [py2k]
     - cython >=0.24.1
     - future >=0.16.0
+    - futures >=3.2             # [py2k]  # for FITS store metrics
     - matplotlib >=1.4.2
     - numpy >=1.9.1
-    - pyraf >=2.1.6
+    - psutil >=5.4
     - pytest >=2.9.2
     - python-dateutil >=2.5.3
     - requests >=2.11.1
@@ -41,12 +43,14 @@ requirements:
     - python
     - astropy >=2
     - astroquery >=0.3.5
+    - configparser >=3.5        # [py2k]
     - future >=0.16.0
+    - futures >=3.2             # [py2k]  # for FITS store metrics
     - gemini_calmgr >=0.9
     - matplotlib >=1.4.2
     - numpy >=1.9.1
-    - pyraf >=2.1.6
-    - pytest >=2.9.2
+    - psutil >=5.4
+    - pytest >=2.9.2            # could be opt. but better allow self-test
     - python-dateutil >=2.5.3
     - requests >=2.11.1
     - scipy >=0.15.1
