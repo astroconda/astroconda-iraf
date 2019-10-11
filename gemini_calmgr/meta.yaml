@@ -1,9 +1,9 @@
 package:
     name: gemini_calmgr
-    version: "0.9.12rc1"
+    version: "0.9.12"
 source:
     svn_url: http://scisoft.gemini.edu/svn/FitsStorage/branches/GeminiCalMgr-0.9
-    # svn_tag: v0.9.12rc1  # TBC
+    svn_rev: 3517
 build:
     number: '0'
 about:
