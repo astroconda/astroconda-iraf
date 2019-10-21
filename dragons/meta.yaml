@@ -3,11 +3,11 @@ build:
     number: '0'
 package:
     name: dragons
-    version: "2.1.0rc3"
+    version: "2.1.0rc4"
 source:
     git_url: https://github.com/GeminiDRSoftware/DRAGONS.git
-    # git_tag: v2.1.0  # TBC
-    git_tag: 868958fb20bd43c0
+    # git_tag: v2.1.0
+    git_tag: 9196b43438f0216b
 about:
     home: http://www.gemini.edu/sciops/data-and-results/processing-software
     license: BSD
@@ -36,7 +36,6 @@ requirements:
     - sphinx >=1.2.2
     - sphinx_rtd_theme >=0.3.0
     - sqlalchemy >=1.0
-    - stsci.numdisplay >=1.6.2
     - fitsverify >=4.17
     - sextractor >=2.8.6
     run:
@@ -56,7 +55,6 @@ requirements:
     - scipy >=0.15.1
     - scikit-image >=0.10.1
     - sqlalchemy >=1.0
-    - stsci.numdisplay >=1.6.2
     - fitsverify >=4.17
     - sextractor >=2.8.6
     run_constrained:
