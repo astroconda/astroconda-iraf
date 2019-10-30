@@ -3,11 +3,10 @@ build:
     number: '0'
 package:
     name: dragons
-    version: "2.1.0rc4"
+    version: "2.1.0"
 source:
     git_url: https://github.com/GeminiDRSoftware/DRAGONS.git
-    # git_tag: v2.1.0
-    git_tag: 9196b43438f0216b
+    git_tag: v2.1.0
 about:
     home: http://www.gemini.edu/sciops/data-and-results/processing-software
     license: BSD
@@ -19,7 +18,7 @@ requirements:
     build:
     - python
     - setuptools
-    - astropy >=2
+    - astropy >=2,<4
     - astroquery >=0.3.5
     - configparser >=3.5        # [py2k]
     - cython >=0.24.1
@@ -40,7 +39,7 @@ requirements:
     - sextractor >=2.8.6
     run:
     - python
-    - astropy >=2
+    - astropy >=2,<4
     - astroquery >=0.3.5
     - configparser >=3.5        # [py2k]
     - future >=0.16.0
