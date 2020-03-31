@@ -1,6 +1,6 @@
 build:
     binary_relocation: True
-    number: '0'
+    number: '1'
 package:
     name: dragons
     version: "2.1.1"
@@ -22,7 +22,7 @@ requirements:
     - astroquery >=0.3.5
     - configparser >=3.5        # [py2k]
     - cython >=0.24.1
-    - disco_stu >=1.3.6
+    - disco_stu >=1.3.7
     - future >=0.16.0
     - futures >=3.2             # [py2k]  # for FITS store metrics
     - matplotlib >=1.4.2
@@ -43,7 +43,7 @@ requirements:
     - astropy >=2
     - astroquery >=0.3.5
     - configparser >=3.5        # [py2k]
-    - disco_stu >=1.3.6
+    - disco_stu >=1.3.7
     - future >=0.16.0
     - futures >=3.2             # [py2k]  # for FITS store metrics
     - gemini_calmgr >=0.9
