@@ -8,12 +8,12 @@ build:
     number: '0'
 package:
     name: disco_stu
-    version: "1.3.6"
+    version: "1.3.7"
 source:
-    # fn: disco_stu-1.3.6.tar.gz
-    # url: http://www.gemini.edu/sciops/data/software/disco_stu-1.3.6.tar.gz
+    # fn: disco_stu-1.3.7.tar.gz
+    # url: http://www.gemini.edu/sciops/data/software/disco_stu-1.3.7.tar.gz
     git_url: git@gitlab.gemini.edu:DRSoftware/disco_stu.git
-    git_tag: v1.3.6
+    git_tag: v1.3.7
 requirements:
     build:
     - python x.x                # syntax needed to build for each python ver.
@@ -23,6 +23,6 @@ requirements:
     - python x.x                # (OrderedDict & argparse require >=2.7)
     - numpy >=1.9               # (version tested, from the manual)
     - scipy >=0.14              # (to match the NumPy requirement)
-    - astropy >=1.0             # (from the manual)
+    - astropy >=1.0,<4          # (from the manual, plus known incompat.)
     - sextractor >=2.8.6        # (from the manual)
 
