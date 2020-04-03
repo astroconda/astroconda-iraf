@@ -23,6 +23,6 @@ requirements:
     - python x.x                # (OrderedDict & argparse require >=2.7)
     - numpy >=1.9               # (version tested, from the manual)
     - scipy >=0.14              # (to match the NumPy requirement)
-    - astropy >=1.0             # (from the manual, recently 4.0-compatible)
+    - astropy >=2               # (recently 4.0-compatible & decided to drop 1)
     - sextractor >=2.8.6        # (from the manual)
 
