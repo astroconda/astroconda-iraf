@@ -1,9 +1,9 @@
 package:
     name: gemini_calmgr
-    version: "0.9.12"
+    version: "1.0.0.dev"
 source:
-    svn_url: http://scisoft.gemini.edu/svn/FitsStorage/branches/GeminiCalMgr-0.9
-    svn_rev: 3517
+    git_url: git@gitlab.gemini.edu:DRSoftware/FitsStorage.git
+    git_tag: 2020-2.11  # host FITSStorage repo has its own versioning...
 build:
     number: '0'
 about:
@@ -16,7 +16,7 @@ requirements:
     - setuptools
     run:
     - python
-    - astropy >=1.2.1
-    - dragons >=2
-    - sqlalchemy >=1.0
+    - astropy >=4.1
+    - dragons >=3.0.0.dev
+    - sqlalchemy >=1.3
 
