@@ -1,9 +1,9 @@
 package:
     name: gemini_calmgr
-    version: "1.0.0.dev"
+    version: "1.0.0"
 source:
     git_url: git@gitlab.gemini.edu:DRSoftware/FitsStorage.git
-    git_tag: 2020-2.11  # host FITSStorage repo has its own versioning...
+    git_tag: 2020-2.20  # host FITSStorage repo has its own versioning...
 build:
     number: '0'
 about:
