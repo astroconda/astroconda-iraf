@@ -18,5 +18,6 @@ requirements:
     - python
     - astropy >=4.1
     - dragons >=3.0.0
+    - numpy >=1.17
     - sqlalchemy >=1.3
 
