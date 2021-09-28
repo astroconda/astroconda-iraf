@@ -1,6 +1,6 @@
 build:
     binary_relocation: True
-    number: '0'
+    number: '1'
 package:
     name: dragons
     version: "3.0.0"
