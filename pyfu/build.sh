@@ -1,5 +1,7 @@
+set -e
+
 # Install as a Python package:
-python setup.py install || exit 1
+$PYTHON -m pip install . --no-deps --ignore-installed --no-cache-dir -v
 
 # Documentation:
 mkdir -p ${PREFIX}/share/pyfu && cp -p README LICENSE ${PREFIX}/share/pyfu/
@@ -11,7 +13,7 @@ mkdir -p ${PREFIX}/share/pyfu && cp -p README LICENSE ${PREFIX}/share/pyfu/
 . ac_iraf_defs
 
 ext_path="${PREFIX}/${extern_dir}"
-mkdir -p "$ext_path" || exit 1
+mkdir -p "$ext_path"
 
 (cd "$ext_path" && ln -s ${SP_DIR}/pyfu .)
 
