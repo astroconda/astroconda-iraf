@@ -3,10 +3,10 @@ build:
     number: '0'
 package:
     name: dragons
-    version: "3.0.2"
+    version: "3.0.3"
 source:
     git_url: git@github.com:GeminiDRSoftware/DRAGONS.git
-    git_tag: v3.0.2
+    git_tag: v3.0.3
 about:
     home: http://www.gemini.edu/sciops/data-and-results/processing-software
     license: BSD
@@ -18,7 +18,6 @@ requirements:
     build:
     - python
     - setuptools
-    # - gemini-anaconda=2020.11.g0  # Workaround for building on CentOS 6
     - asdf >=2.7
     - astropy >=4.2
     - astroquery >=0.4
