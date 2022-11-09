@@ -1,12 +1,12 @@
 build:
     binary_relocation: True
-    number: '1'
+    number: '0'
 package:
     name: dragons
-    version: "3.0.3"
+    version: "3.0.4"
 source:
     git_url: git@github.com:GeminiDRSoftware/DRAGONS.git
-    git_tag: v3.0.3
+    git_tag: v3.0.4
 about:
     home: http://www.gemini.edu/sciops/data-and-results/processing-software
     license: BSD
