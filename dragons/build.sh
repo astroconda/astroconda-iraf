@@ -1,5 +1,7 @@
+set -e
+
 # Build the package in the usual way:
-$PYTHON setup.py install || exit 1
+$PYTHON -m pip install . --no-deps --ignore-installed --no-cache-dir -vv
 
 # Build the Sphinx documentation with our purpose-built LaTeX package:
 docs="astrodata/doc/ad_CheatSheet astrodata/doc/ad_ProgManual \
@@ -14,10 +16,11 @@ docs="astrodata/doc/ad_CheatSheet astrodata/doc/ad_ProgManual \
 # DRAGONS itself, to keep things modular and allow building everything without
 # the conda recipe.
 
-#(cd doc/ && make html && make latexpdf) || exit 1
+# cd doc/ && make html && make latexpdf
 
-# Install the LICENSE file(s) where recipients can read them:
+# License files now get copied into the package as specified in meta.yaml, but
+# not to the env where users can easily find them, so continue copying here too:
 mkdir -p ${PREFIX}/share/dragons/
-cp -p LICENSE ${PREFIX}/share/dragons/ || exit 1
+cp -p LICENSE ${PREFIX}/share/dragons/
 cp -pR extern_licenses ${PREFIX}/share/dragons/
 
