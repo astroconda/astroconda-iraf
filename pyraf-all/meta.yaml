@@ -1,26 +1,24 @@
 # A meta-package including PyRAF and any external IRAF-style packages that
 # require it (and therefore don't belong in iraf-all).
 #
-# Currently this is not really useful, since the kepler package is broken.
+# Since the kepler package has not been ported to Python 3, this currently only
+# installs pyraf, but remains here for backwards compatibility and just in case
+# any pyraf packages are added later. It also ensures that iraf gets installed,
+# without which pyraf is fairly useless.
 
+package:
+    name: pyraf-all
+    version: "1.1"
+build:
+    number: '0'
+    noarch: generic
 about:
     home: http://www.stsci.edu/institute/software_hardware/pyraf
     license: various (see individual packages)
     summary: PyRAF and the external IRAF-style packages that require it
-build:
-    number: '0'
-package:
-    name: pyraf-all
-    version: "1.0"
 requirements:
-    build:
-    - iraf !=2.16.1,>=2.16.UR  # external pkgs here need the ".UR" build
-    - python                   # needed just to get py2/3-specific builds
-    - pyraf
-    - pyraf.kepler # [py2k]
     run:
     - iraf !=2.16.1,>=2.16.UR  # should this be iraf-all, to get everything?
-    - python
-    - pyraf
-    - pyraf.kepler # [py2k]    # the authors only support Py 2, as of May 2017
+    - python >=3.7             # py 2 should continue using v1.0 with kepler
+    - pyraf >=2.2.1
 
