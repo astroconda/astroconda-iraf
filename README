@@ -1,0 +1,8 @@
+Following STScI's decision to drop support for Astroconda in February 2023,
+this repository has been superseded by:
+
+  https://github.com/GeminiDRSoftware/astroconda-gemini-public
+
+where the subset of conda packages still needed by Gemini (and published at
+http://astroconda.gemini.edu/public) will be maintained.
+
